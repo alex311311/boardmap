@@ -1,0 +1,375 @@
+:root {
+  --paper: #fbfff4;
+  --evergreen: #203727;
+  --ink: #102118;
+  --mist: #dceadf;
+  --sky: #8bb7c7;
+  --gold: #d7b777;
+  --pine: #314d3b;
+  --flight: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--evergreen);
+}
+
+body {
+  margin: 0;
+  color: var(--paper);
+  background: var(--evergreen);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+body::selection {
+  color: var(--evergreen);
+  background: var(--gold);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.topbar {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 34px;
+  color: var(--paper);
+  pointer-events: none;
+}
+
+.topbar a,
+.meter {
+  pointer-events: auto;
+}
+
+.brand,
+.nav-links,
+.meter {
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.38);
+}
+
+.brand {
+  width: fit-content;
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.meter {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 184px;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.meter i {
+  display: block;
+  width: 118px;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(251, 255, 244, 0.26);
+}
+
+.meter b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(var(--flight));
+  transform-origin: left center;
+  background: var(--paper);
+}
+
+.flight-scroll {
+  height: 780vh;
+  min-height: 5600px;
+}
+
+.flight-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 620px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink);
+}
+
+.flight-canvas,
+#wind,
+.depth-haze,
+.flight-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.flight-canvas {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: url("assets/frames/flight-01.jpg") center / cover;
+  transform:
+    translate3d(calc((var(--flight) - 0.5) * -18px), calc(var(--flight) * -10px), 0)
+    scale(calc(1.01 + var(--flight) * 0.035));
+  filter: saturate(1.04) contrast(1.04);
+  will-change: transform;
+}
+
+#wind {
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.depth-haze {
+  z-index: 2;
+  background:
+    radial-gradient(circle at 50% 44%, transparent 0 23%, rgba(251, 255, 244, 0.08) 36%, transparent 58%),
+    radial-gradient(circle at 78% 16%, rgba(215, 183, 119, 0.26), transparent 34%);
+  opacity: calc(0.42 + var(--flight) * 0.28);
+  pointer-events: none;
+}
+
+.flight-shade {
+  z-index: 3;
+  background:
+    linear-gradient(90deg, rgba(9, 18, 13, 0.82), transparent 28%, transparent 68%, rgba(9, 18, 13, 0.28)),
+    linear-gradient(0deg, rgba(9, 18, 13, 0.8), transparent 28%, rgba(251, 255, 244, 0.06));
+  pointer-events: none;
+}
+
+.chapter {
+  position: absolute;
+  z-index: 8;
+  left: 42px;
+  bottom: 58px;
+  width: min(760px, calc(100vw - 84px));
+  transform: translateY(calc(var(--flight) * -18px));
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: color-mix(in srgb, var(--paper), var(--gold) 35%);
+  font-size: 0.84rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: 8rem;
+  line-height: 0.84;
+  text-wrap: balance;
+  text-shadow: 0 24px 70px rgba(0, 0, 0, 0.44);
+}
+
+.chapter p:last-child {
+  width: min(560px, 100%);
+  margin: 24px 0 0;
+  color: rgba(251, 255, 244, 0.88);
+  font-size: 1.12rem;
+  line-height: 1.55;
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.36);
+}
+
+.frame-strip {
+  position: absolute;
+  z-index: 9;
+  right: 32px;
+  bottom: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 68px);
+  gap: 8px;
+  transform: translateY(calc(var(--flight) * 18px));
+}
+
+.frame-strip img {
+  width: 68px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid rgba(251, 255, 244, 0.28);
+  border-radius: 4px;
+  opacity: 0.62;
+}
+
+.flow-band {
+  position: relative;
+  padding: 46px 34px;
+  color: var(--evergreen);
+  background: var(--paper);
+}
+
+.flow-copy {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 1px solid color-mix(in srgb, var(--evergreen), transparent 76%);
+  background: color-mix(in srgb, var(--evergreen), transparent 76%);
+}
+
+.flow-copy p {
+  margin: 0;
+  min-height: 124px;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.arrival {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 96px 34px;
+  color: var(--paper);
+  background:
+    linear-gradient(rgba(14, 30, 22, 0.1), rgba(14, 30, 22, 0.9)),
+    url("assets/frames/flight-08.jpg") center / cover;
+}
+
+.arrival-copy {
+  width: min(980px, 100%);
+}
+
+.arrival h2 {
+  max-width: 880px;
+  font-size: 6.5rem;
+  line-height: 0.9;
+}
+
+.replay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin-top: 34px;
+  padding: 0 20px;
+  border: 1px solid rgba(251, 255, 244, 0.42);
+  border-radius: 8px;
+  color: var(--paper);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: rgba(251, 255, 244, 0.08);
+}
+
+@media (max-width: 840px) {
+  .topbar {
+    grid-template-columns: 1fr auto;
+    padding: 18px;
+  }
+
+  .nav-links,
+  .frame-strip {
+    display: none;
+  }
+
+  .meter {
+    width: 132px;
+  }
+
+  .meter i {
+    width: 72px;
+  }
+
+  .flight-stage {
+    min-height: 560px;
+  }
+
+  .chapter {
+    left: 20px;
+    right: 20px;
+    bottom: 42px;
+    width: auto;
+  }
+
+  h1 {
+    font-size: 4.2rem;
+  }
+
+  .chapter p:last-child {
+    font-size: 1rem;
+  }
+
+  .flow-copy {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .flow-copy p {
+    min-height: 96px;
+    font-size: 1.06rem;
+  }
+
+  .arrival h2 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .brand,
+  .meter {
+    font-size: 0.66rem;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+  }
+
+  .arrival h2 {
+    font-size: 3.1rem;
+  }
+
+  .flow-copy {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .flight-canvas {
+    transform: none;
+  }
+}

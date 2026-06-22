@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EverFlight</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar" aria-label="Primary navigation">
+      <a class="brand" href="#flight">EverFlight</a>
+      <nav class="nav-links" aria-label="Flight sections">
+        <a href="#flight">Ascent</a>
+        <a href="#flow">Flow</a>
+        <a href="#arrival">Peak</a>
+      </nav>
+      <div class="meter" aria-label="Scroll progress">
+        <span id="progressText">0%</span>
+        <i><b id="progressBar"></b></i>
+      </div>
+    </header>
+
+    <main>
+      <section class="flight-scroll" id="flight" aria-label="Scroll controlled cinematic flight">
+        <div class="flight-stage">
+          <canvas id="flightCanvas" class="flight-canvas" aria-hidden="true"></canvas>
+
+          <canvas id="wind" aria-hidden="true"></canvas>
+          <div class="depth-haze" aria-hidden="true"></div>
+          <div class="flight-shade" aria-hidden="true"></div>
+
+          <div class="chapter">
+            <p class="eyebrow" id="chapterKicker">DeFi at Peak.</p>
+            <h1 id="chapterTitle">EverFlight</h1>
+            <p id="chapterLine">Move through the ridge, the clouds, and the city in one continuous ascent.</p>
+          </div>
+
+          <div class="frame-strip" aria-hidden="true">
+            <img src="assets/frames/flight-01.jpg" alt="">
+            <img src="assets/frames/flight-03.jpg" alt="">
+            <img src="assets/frames/flight-05.jpg" alt="">
+            <img src="assets/frames/flight-08.jpg" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section class="flow-band" id="flow" aria-label="Flow statements">
+        <div class="flow-copy">
+          <p>One path</p>
+          <p>Continuous motion</p>
+          <p>Cloud wake</p>
+          <p>Peak arrival</p>
+        </div>
+      </section>
+
+      <section class="arrival" id="arrival" aria-label="Arrival">
+        <div class="arrival-copy">
+          <p class="eyebrow">Arrival</p>
+          <h2>One ascent. Every view.</h2>
+          <a href="#flight" class="replay">Replay flight</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
