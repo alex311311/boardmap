@@ -1,7 +1,5 @@
-const SESSION_KEY = "boardmap.playSessions.v1";
-const MEMBER_KEY = "boardmap.playSessionMembers.v1";
-const MEMBER_CATALOG_KEY = "boardmap.members.v1";
 const source = window.BOARDMAP_DATA || {};
+const db = window.supabaseBoardmapDataSource?.client;
 
 const datasets = {
   boardGames: { label: "Board Games", readOnly: true, records: source.boardGames || [] },
@@ -46,17 +44,17 @@ const historyTableBody = document.querySelector("#historyTableBody");
 let activeDataset = "boardGames";
 let sessionSelectedMemberIds = new Set();
 
-function readLocal(key) {
-  try {
-    const value = JSON.parse(localStorage.getItem(key) || "[]");
-    return Array.isArray(value) ? value : [];
-  } catch { return []; }
-}
-
-function refreshLocalRecords() {
-  datasets.members.records = readLocal(MEMBER_CATALOG_KEY);
-  datasets.sessions.records = readLocal(SESSION_KEY);
-  datasets.sessionMembers.records = readLocal(MEMBER_KEY);
+async function refreshRemoteRecords() {
+  if (!db) throw new Error("Supabase is not configured.");
+  const [members, sessions, relations] = await Promise.all([
+    db.from("members").select("id, display_name, active, role, created_at").order("display_name"),
+    db.from("play_sessions").select("id, game_id, played_at, note, created_by, created_at").order("played_at", { ascending: false }),
+    db.from("play_session_members").select("session_id, member_id, result, score, created_at")
+  ]);
+  [members, sessions, relations].forEach(({ error }) => { if (error) throw error; });
+  datasets.members.records = members.data.map((record) => ({ id: record.id, name: record.display_name, active: record.active, role: record.role, createdAt: record.created_at }));
+  datasets.sessions.records = sessions.data.map((record) => ({ id: record.id, gameId: record.game_id, date: record.played_at, note: record.note || "", createdBy: record.created_by, createdAt: record.created_at }));
+  datasets.sessionMembers.records = relations.data.map((record) => ({ sessionId: record.session_id, memberId: record.member_id, result: record.result, score: record.score, createdAt: record.created_at }));
 }
 
 function validateData() {
@@ -81,12 +79,12 @@ function renderOverview() {
   const metrics = [
     [datasets.boardGames.records.length, "Board games"], [datasets.locations.records.length, "Map nodes"],
     [datasets.maps.records.length, "Maps"], [datasets.regions.records.length, "Regions"],
-    [datasets.members.records.length, "Members"], [datasets.sessions.records.length, "Local sessions"]
+    [datasets.members.records.length, "Members"], [datasets.sessions.records.length, "Shared sessions"]
   ];
   metricGrid.innerHTML = metrics.map(([value, label]) => `<article class="metric"><strong>${value}</strong><span>${label}</span></article>`).join("");
   const errors = validateData();
   validationResult.classList.toggle("has-errors", errors.length > 0);
-  validationResult.textContent = errors.length ? `${errors.length} issue(s): ${errors.slice(0, 4).join(" · ")}` : "All IDs and local record references are valid.";
+  validationResult.textContent = errors.length ? `${errors.length} issue(s): ${errors.slice(0, 4).join(" · ")}` : "All IDs and shared record references are valid.";
 }
 
 function columnsFor(records) {
@@ -125,7 +123,7 @@ function renderTable() {
   const columns = columnsFor(displayRecords);
   tableHead.innerHTML = `<tr>${columns.map((column) => `<th>${column}</th>`).join("")}${dataset.readOnly ? "" : "<th>action</th>"}</tr>`;
   tableBody.innerHTML = records.map(({ record, index }) => `<tr>${columns.map((column) => `<td>${escapeHtml(String(displayValue(record[column])))}</td>`).join("")}${dataset.readOnly ? "" : `<td>${activeDataset === "sessions" || activeDataset === "members" ? `<button class="row-edit" data-index="${index}" type="button">Edit</button>` : ""}<button class="row-delete" data-index="${index}" type="button">Delete</button></td>`}</tr>`).join("");
-  tableNote.textContent = `${records.length} of ${dataset.records.length} records · ${dataset.readOnly ? "Bundled JSON / read-only" : "Browser localStorage / editable"}`;
+  tableNote.textContent = `${records.length} of ${dataset.records.length} records · ${dataset.readOnly ? "Bundled JSON / read-only" : "Supabase / publicly editable"}`;
 }
 
 function escapeHtml(value) {
@@ -136,8 +134,9 @@ function renderTabs() {
   dataTabs.innerHTML = Object.entries(datasets).map(([key, dataset]) => `<button type="button" role="tab" data-dataset="${key}" aria-selected="${key === activeDataset}">${dataset.label}</button>`).join("");
 }
 
-function refresh() {
-  refreshLocalRecords();
+async function refresh() {
+  try { await refreshRemoteRecords(); }
+  catch (error) { actionMessage.textContent = `Supabase error: ${error.message}`; }
   renderOverview();
   renderTabs();
   renderSessionEditor();
@@ -266,67 +265,63 @@ function editSession(index) {
   sessionEditor.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-function deleteLocalRecord(index) {
-  if (!confirm("Delete this local record?")) return;
-  if (activeDataset === "sessions") {
-    const id = datasets.sessions.records[index]?.id;
-    localStorage.setItem(SESSION_KEY, JSON.stringify(datasets.sessions.records.filter((record) => record.id !== id)));
-    localStorage.setItem(MEMBER_KEY, JSON.stringify(datasets.sessionMembers.records.filter((record) => record.sessionId !== id)));
-  } else if (activeDataset === "members") {
-    const id = datasets.members.records[index]?.id;
-    localStorage.setItem(MEMBER_CATALOG_KEY, JSON.stringify(datasets.members.records.filter((record) => record.id !== id)));
-    localStorage.setItem(MEMBER_KEY, JSON.stringify(datasets.sessionMembers.records.filter((record) => record.memberId !== id)));
-  } else {
-    const records = [...datasets.sessionMembers.records];
-    records.splice(index, 1);
-    localStorage.setItem(MEMBER_KEY, JSON.stringify(records));
-  }
-  actionMessage.textContent = "Local record deleted.";
-  refresh();
+async function deleteRemoteRecord(index) {
+  if (!confirm("Delete this shared Supabase record?")) return;
+  try {
+    let result;
+    if (activeDataset === "sessions") result = await db.from("play_sessions").delete().eq("id", datasets.sessions.records[index]?.id);
+    else if (activeDataset === "members") result = await db.from("members").delete().eq("id", datasets.members.records[index]?.id);
+    else {
+      const relation = datasets.sessionMembers.records[index];
+      result = await db.from("play_session_members").delete().eq("session_id", relation?.sessionId).eq("member_id", relation?.memberId);
+    }
+    if (result.error) throw result.error;
+    actionMessage.textContent = "Shared record deleted from Supabase.";
+    await refresh();
+  } catch (error) { actionMessage.textContent = error.message; }
 }
 
 dataTabs.addEventListener("click", (event) => { const key = event.target.dataset.dataset; if (!key) return; activeDataset = key; recordSearch.value = ""; renderTabs(); renderSessionEditor(); renderMemberEditor(); renderTable(); });
 recordSearch.addEventListener("input", renderTable);
-tableBody.addEventListener("click", (event) => {
+tableBody.addEventListener("click", async (event) => {
   if (event.target.matches(".row-edit")) {
     if (activeDataset === "sessions") editSession(Number(event.target.dataset.index));
     if (activeDataset === "members") editMember(Number(event.target.dataset.index));
   }
-  if (event.target.matches(".row-delete")) deleteLocalRecord(Number(event.target.dataset.index));
+  if (event.target.matches(".row-delete")) await deleteRemoteRecord(Number(event.target.dataset.index));
 });
-sessionEditor.addEventListener("submit", (event) => {
+sessionEditor.addEventListener("submit", async (event) => {
   event.preventDefault();
   const existingIndex = datasets.sessions.records.findIndex((session) => session.id === editSessionId.value);
   const existing = datasets.sessions.records[existingIndex];
   const selectedGame = datasets.boardGames.records.find((game) => game.title.toLocaleLowerCase() === editGameTitle.value.trim().toLocaleLowerCase());
   const memberIds = selectedMemberIds();
-  const session = {
-    id: existing?.id || `session-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
-    gameId: selectedGame?.id || "",
-    date: editPlayDate.value,
-    playerCount: memberIds.length,
-    note: editSessionNote.value.trim(),
-    createdAt: existing?.createdAt || new Date().toISOString()
-  };
-  if (!session.gameId || !session.date || memberIds.length < 1) {
+  if (!selectedGame?.id || !editPlayDate.value || memberIds.length < 1) {
     actionMessage.textContent = "Choose a game, play date, and at least one registered member.";
     return;
   }
-  const sessions = [...datasets.sessions.records];
-  if (existingIndex >= 0) sessions[existingIndex] = session; else sessions.push(session);
-  localStorage.setItem(SESSION_KEY, JSON.stringify(sessions));
-  const relations = datasets.sessionMembers.records.filter((relation) => relation.sessionId !== session.id);
-  memberIds.forEach((memberId) => {
-    const member = datasets.members.records.find((record) => record.id === memberId);
-    relations.push({ sessionId: session.id, memberId, memberName: member?.name || "" });
-  });
-  localStorage.setItem(MEMBER_KEY, JSON.stringify(relations));
-  actionMessage.textContent = existing ? "Play session updated." : "Play session added.";
-  resetSessionEditor();
-  refresh();
+  try {
+    const values = { game_id: selectedGame.id, played_at: editPlayDate.value, note: editSessionNote.value.trim() || null, created_by: existing?.createdBy || memberIds[0] };
+    let sessionId = existing?.id;
+    if (existing) {
+      const updated = await db.from("play_sessions").update(values).eq("id", existing.id);
+      if (updated.error) throw updated.error;
+      const removed = await db.from("play_session_members").delete().eq("session_id", existing.id);
+      if (removed.error) throw removed.error;
+    } else {
+      const inserted = await db.from("play_sessions").insert(values).select("id").single();
+      if (inserted.error) throw inserted.error;
+      sessionId = inserted.data.id;
+    }
+    const added = await db.from("play_session_members").insert(memberIds.map((memberId) => ({ session_id: sessionId, member_id: memberId })));
+    if (added.error) throw added.error;
+    actionMessage.textContent = existing ? "Play session updated in Supabase." : "Play session added to Supabase.";
+    resetSessionEditor();
+    await refresh();
+  } catch (error) { actionMessage.textContent = error.message; }
 });
 cancelEditButton.addEventListener("click", resetSessionEditor);
-memberEditor.addEventListener("submit", (event) => {
+memberEditor.addEventListener("submit", async (event) => {
   event.preventDefault();
   const name = editMemberName.value.trim();
   const existingIndex = datasets.members.records.findIndex((member) => member.id === editMemberId.value);
@@ -336,16 +331,15 @@ memberEditor.addEventListener("submit", (event) => {
     return;
   }
   const existing = datasets.members.records[existingIndex];
-  const member = { id: existing?.id || `member-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, name, createdAt: existing?.createdAt || new Date().toISOString() };
-  const members = [...datasets.members.records];
-  if (existingIndex >= 0) members[existingIndex] = member; else members.push(member);
-  localStorage.setItem(MEMBER_CATALOG_KEY, JSON.stringify(members));
-  if (existing) {
-    localStorage.setItem(MEMBER_KEY, JSON.stringify(datasets.sessionMembers.records.map((relation) => relation.memberId === member.id ? { ...relation, memberName: name } : relation)));
-  }
-  actionMessage.textContent = existing ? "Member updated." : "Member added.";
-  resetMemberEditor();
-  refresh();
+  try {
+    const result = existing
+      ? await db.from("members").update({ display_name: name }).eq("id", existing.id)
+      : await db.from("members").insert({ display_name: name });
+    if (result.error) throw result.error;
+    actionMessage.textContent = existing ? "Member updated in Supabase." : "Member added to Supabase.";
+    resetMemberEditor();
+    await refresh();
+  } catch (error) { actionMessage.textContent = error.message; }
 });
 cancelMemberEditButton.addEventListener("click", resetMemberEditor);
 memberFilter.addEventListener("input", () => renderMemberOptions());
@@ -395,18 +389,49 @@ document.querySelector("#importInput").addEventListener("change", async (event) 
   try {
     const backup = JSON.parse(await event.target.files[0].text());
     if (!Array.isArray(backup.playSessions) || !Array.isArray(backup.playSessionMembers)) throw new Error("Invalid Boardmap backup.");
-    if (!confirm("Replace all local play records with this backup?")) return;
-    localStorage.setItem(MEMBER_CATALOG_KEY, JSON.stringify(Array.isArray(backup.members) ? backup.members : []));
-    localStorage.setItem(SESSION_KEY, JSON.stringify(backup.playSessions)); localStorage.setItem(MEMBER_KEY, JSON.stringify(backup.playSessionMembers));
-    actionMessage.textContent = "Backup imported."; refresh();
+    if (!confirm("Replace all shared Supabase play records with this backup?")) return;
+    const clearSessions = await db.from("play_sessions").delete().not("id", "is", null);
+    if (clearSessions.error) throw clearSessions.error;
+    const clearMembers = await db.from("members").delete().is("auth_user_id", null);
+    if (clearMembers.error) throw clearMembers.error;
+
+    const memberIdMap = new Map();
+    for (const member of (Array.isArray(backup.members) ? backup.members : [])) {
+      const inserted = await db.from("members").insert({ display_name: member.name || member.displayName || "Member" }).select("id").single();
+      if (inserted.error) throw inserted.error;
+      memberIdMap.set(member.id, inserted.data.id);
+    }
+    const sessionIdMap = new Map();
+    for (const session of backup.playSessions) {
+      const oldMemberIds = backup.playSessionMembers.filter((relation) => relation.sessionId === session.id).map((relation) => memberIdMap.get(relation.memberId)).filter(Boolean);
+      if (!oldMemberIds.length) continue;
+      const inserted = await db.from("play_sessions").insert({ game_id: session.gameId, played_at: session.date, note: session.note || null, created_by: oldMemberIds[0] }).select("id").single();
+      if (inserted.error) throw inserted.error;
+      sessionIdMap.set(session.id, inserted.data.id);
+    }
+    const relations = backup.playSessionMembers.map((relation) => ({ session_id: sessionIdMap.get(relation.sessionId), member_id: memberIdMap.get(relation.memberId) })).filter((relation) => relation.session_id && relation.member_id);
+    if (relations.length) {
+      const inserted = await db.from("play_session_members").insert(relations);
+      if (inserted.error) throw inserted.error;
+    }
+    actionMessage.textContent = "Backup imported to Supabase.";
+    await refresh();
   } catch (error) { actionMessage.textContent = error.message; }
   event.target.value = "";
 });
 resetConfirmation.addEventListener("input", () => { resetButton.disabled = resetConfirmation.value !== "DELETE"; });
-resetButton.addEventListener("click", () => {
-  if (resetConfirmation.value !== "DELETE" || !confirm("Permanently delete all local Boardmap play records?")) return;
-  localStorage.removeItem(MEMBER_CATALOG_KEY); localStorage.removeItem(SESSION_KEY); localStorage.removeItem(MEMBER_KEY); resetConfirmation.value = ""; resetButton.disabled = true;
-  actionMessage.textContent = "All local members and play records deleted."; refresh();
+resetButton.addEventListener("click", async () => {
+  if (resetConfirmation.value !== "DELETE" || !confirm("Permanently delete all shared Supabase play records and non-login members?")) return;
+  try {
+    const sessions = await db.from("play_sessions").delete().not("id", "is", null);
+    if (sessions.error) throw sessions.error;
+    const members = await db.from("members").delete().is("auth_user_id", null);
+    if (members.error) throw members.error;
+    resetConfirmation.value = "";
+    resetButton.disabled = true;
+    actionMessage.textContent = "Shared Supabase play records deleted.";
+    await refresh();
+  } catch (error) { actionMessage.textContent = error.message; }
 });
 
 resetSessionEditor();

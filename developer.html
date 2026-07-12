@@ -9,17 +9,17 @@
   <body>
     <header class="dev-header">
       <div>
-        <p class="eyebrow">Boardmap / Local Data Tools</p>
+        <p class="eyebrow">Boardmap / Shared Data Tools</p>
         <h1>Developer Console</h1>
-        <p>Inspect the bundled catalog and manage play records stored in this browser.</p>
+        <p>Inspect the bundled catalog and manage shared play records in Supabase.</p>
       </div>
-      <div><a class="back-link" href="auth.html">Sign In</a> <a class="back-link" href="index.html">Back to Boardmap</a></div>
+      <a class="back-link" href="index.html">Back to Boardmap</a>
     </header>
 
     <main>
       <section class="notice" aria-label="Storage information">
-        <strong>Storage boundary</strong>
-        <p>Catalog records come from read-only JSON assets. Only play sessions and their member relations in localStorage can be changed here.</p>
+        <strong>Public shared editing</strong>
+        <p>Anyone with this page can change members and play records. Every change is saved to Supabase and shared with all visitors.</p>
       </section>
 
       <section>
@@ -64,7 +64,7 @@
       </section>
 
       <section>
-        <div class="section-heading"><div><p class="eyebrow">Local records</p><h2>Backup and restore</h2></div></div>
+        <div class="section-heading"><div><p class="eyebrow">Shared records</p><h2>Backup and restore</h2></div></div>
         <div class="action-grid">
           <article>
             <h3>Export backup</h3>
@@ -78,7 +78,7 @@
           </article>
           <article class="danger-card">
             <h3>Reset local data</h3>
-            <p>Type <code>DELETE</code> to remove every local member and play record.</p>
+            <p>Type <code>DELETE</code> to remove every shared member and play record.</p>
             <input id="resetConfirmation" type="text" autocomplete="off" placeholder="DELETE">
             <button id="resetButton" class="danger" type="button" disabled>Delete all local records</button>
           </article>
@@ -87,6 +87,9 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="supabase-data-source.js"></script>
     <script src="assets/data/boardmap-data.js"></script>
     <script src="developer.js"></script>
   </body>

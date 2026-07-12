@@ -130,9 +130,7 @@ const regions = {
 
 const boardGames = dataArray(boardmapData.boardGames);
 const boardGameLocations = dataArray(boardmapData.boardGameLocations);
-const SESSION_STORAGE_KEY = "boardmap.playSessions.v1";
-const storedPlaySessions = readStoredRecords(SESSION_STORAGE_KEY);
-const playSessions = [...dataArray(boardmapData.playSessions), ...storedPlaySessions];
+const playSessions = [];
 const gamesById = new Map(boardGames.map((game) => [game.id, game]));
 const playCountsByGame = playSessions.reduce((counts, session) => {
   counts.set(session.gameId, (counts.get(session.gameId) || 0) + 1);
@@ -178,14 +176,22 @@ function clamp(value, min = 0, max = 1) {
   return Math.min(Math.max(value, min), max);
 }
 
-function readStoredRecords(key) {
-  try {
-    const records = JSON.parse(localStorage.getItem(key) || "[]");
-    return Array.isArray(records) ? records : [];
-  } catch (error) {
-    console.warn(`Could not read ${key}.`, error);
-    return [];
-  }
+async function loadSharedPlaySessions() {
+  const db = window.supabaseBoardmapDataSource?.client;
+  if (!db) return;
+  const response = await db.from("play_sessions").select("id, game_id, played_at, note, created_at");
+  if (response.error) throw response.error;
+  playSessions.splice(0, playSessions.length, ...response.data.map((record) => ({
+    id: record.id,
+    gameId: record.game_id,
+    date: record.played_at,
+    note: record.note || "",
+    createdAt: record.created_at
+  })));
+  playCountsByGame.clear();
+  playSessions.forEach((session) => playCountsByGame.set(session.gameId, (playCountsByGame.get(session.gameId) || 0) + 1));
+  renderProgressSummary();
+  if (activeRegionId) renderRegionCanvases(activeRegionId);
 }
 
 function getLatestSession(gameId) {
@@ -964,6 +970,7 @@ window.addEventListener("resize", resize);
 bindMapEntryLinks();
 bindRegionNavigation();
 renderProgressSummary();
+loadSharedPlaySessions().catch((error) => console.error("Could not load Supabase play sessions.", error));
 resize();
 prepareStage();
 updateTarget();
