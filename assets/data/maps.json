@@ -1,0 +1,58 @@
+[
+    {
+        "id": "world-atlas",
+        "title": "World Atlas",
+        "type": "hub",
+        "imageUrl": "assets/map/world-atlas-hub-v2.png",
+        "sortOrder": 0,
+        "active": true
+    },
+    {
+        "id": "strategy-plains",
+        "title": "Strategy Plains",
+        "type": "region",
+        "imageUrl": "assets/map/regions/strategy-plains.png",
+        "sortOrder": 1,
+        "active": true
+    },
+    {
+        "id": "engine-highlands",
+        "title": "Engine Highlands",
+        "type": "region",
+        "imageUrl": "assets/map/regions/engine-highlands.png",
+        "sortOrder": 2,
+        "active": true
+    },
+    {
+        "id": "route-territory-coast",
+        "title": "Route & Territory Coast",
+        "type": "region",
+        "imageUrl": "assets/map/regions/route-territory-coast.png",
+        "sortOrder": 3,
+        "active": true
+    },
+    {
+        "id": "social-isles",
+        "title": "Social Isles",
+        "type": "region",
+        "imageUrl": "assets/map/regions/social-isles.png",
+        "sortOrder": 4,
+        "active": true
+    },
+    {
+        "id": "wagering-port",
+        "title": "Wagering Port",
+        "type": "region",
+        "imageUrl": "assets/map/regions/wagering-port.png",
+        "sortOrder": 5,
+        "active": true
+    },
+    {
+        "id": "mystery-district",
+        "title": "Mystery District",
+        "type": "region",
+        "imageUrl": "assets/map/regions/mystery-district.png",
+        "sortOrder": 6,
+        "active": true
+    }
+]

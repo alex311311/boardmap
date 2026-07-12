@@ -3,16 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EverFlight</title>
+    <title>Boardmap</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="topbar" aria-label="Primary navigation">
-      <a class="brand" href="#flight">EverFlight</a>
-      <nav class="nav-links" aria-label="Flight sections">
-        <a href="#flight">Ascent</a>
-        <a href="#flow">Flow</a>
-        <a href="#arrival">Peak</a>
+      <a class="brand" href="#flight">Boardmap</a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#flight">Flight</a>
+        <a class="nav-map-link" href="#world-map" aria-controls="world-map">Map</a>
+        <a href="developer.html">Developer</a>
+        <a href="auth.html">Sign In</a>
       </nav>
       <div class="meter" aria-label="Scroll progress">
         <span id="progressText">0%</span>
@@ -30,9 +31,9 @@
           <div class="flight-shade" aria-hidden="true"></div>
 
           <div class="chapter">
-            <p class="eyebrow" id="chapterKicker">DeFi at Peak.</p>
-            <h1 id="chapterTitle">EverFlight</h1>
-            <p id="chapterLine">Move through the ridge, the clouds, and the city in one continuous ascent.</p>
+            <p class="eyebrow" id="chapterKicker">Boardmap opens.</p>
+            <h1 id="chapterTitle">Boardmap</h1>
+            <p id="chapterLine">Fly into the shared world where every board game becomes a place on the map.</p>
           </div>
 
           <div class="frame-strip" aria-hidden="true">
@@ -41,27 +42,112 @@
             <img src="assets/frames/flight-05.jpg" alt="">
             <img src="assets/frames/flight-08.jpg" alt="">
           </div>
+
+          <a class="map-entry" id="mapEntry" href="#world-map" aria-controls="world-map">
+            <span>Enter Map</span>
+          </a>
         </div>
       </section>
 
-      <section class="flow-band" id="flow" aria-label="Flow statements">
-        <div class="flow-copy">
-          <p>One path</p>
-          <p>Continuous motion</p>
-          <p>Cloud wake</p>
-          <p>Peak arrival</p>
+      <section class="map-section" id="world-map" aria-label="Boardmap world atlas" aria-hidden="true" hidden>
+        <div class="atlas-stage">
+          <div class="map-head">
+            <p class="eyebrow">World Atlas</p>
+            <h2>Boardmap</h2>
+            <p>Track opened, revisited, and mastered board games across a shared world.</p>
+          </div>
+          <div class="map-scroll" aria-label="World atlas map viewport">
+            <div class="map-atlas">
+              <video class="atlas-video" autoplay muted loop playsinline preload="auto" poster="assets/map/world-atlas-hub-v2.png" aria-label="Animated Boardmap world atlas hub with six distinct regions">
+                <source src="assets/map/world-atlas-hub-animated.mp4" type="video/mp4">
+              </video>
+              <img class="atlas-windmill-patch" src="assets/map/world-atlas-hub-v2.png" alt="" aria-hidden="true">
+              <button class="region-hotspot region-hotspot--strategy" type="button" data-region="strategy-plains" aria-label="Open Strategy Plains map">
+                <span>Strategy Plains</span>
+              </button>
+              <button class="region-hotspot region-hotspot--engine" type="button" data-region="engine-highlands" aria-label="Open Engine Highlands map">
+                <span>Engine Highlands</span>
+              </button>
+              <button class="region-hotspot region-hotspot--route" type="button" data-region="route-territory-coast" aria-label="Open Route and Territory Coast map">
+                <span>Route &amp; Territory Coast</span>
+              </button>
+              <button class="region-hotspot region-hotspot--social" type="button" data-region="social-isles" aria-label="Open Social Isles map">
+                <span>Social Isles</span>
+              </button>
+              <button class="region-hotspot region-hotspot--wagering" type="button" data-region="wagering-port" aria-label="Open Wagering Port map">
+                <span>Wagering Port</span>
+              </button>
+              <button class="region-hotspot region-hotspot--mystery" type="button" data-region="mystery-district" aria-label="Open Mystery District map">
+                <span>Mystery District</span>
+              </button>
+            </div>
+          </div>
+          <aside class="progress-summary" aria-label="Boardgame progress">
+            <p class="eyebrow">Expedition Progress</p>
+            <strong id="summaryProgress">0%</strong>
+            <span id="summaryOpened">0 of 157 opened</span>
+            <div class="summary-ranks" id="summaryRanks"></div>
+            <p id="summaryTopGame">No plays recorded yet.</p>
+          </aside>
         </div>
-      </section>
 
-      <section class="arrival" id="arrival" aria-label="Arrival">
-        <div class="arrival-copy">
-          <p class="eyebrow">Arrival</p>
-          <h2>One ascent. Every view.</h2>
-          <a href="#flight" class="replay">Replay flight</a>
-        </div>
+        <section class="region-view" id="region-map" aria-label="Selected region map" aria-hidden="true" hidden>
+          <div class="region-head">
+            <p class="eyebrow" id="regionKicker">Region Map</p>
+            <h3 id="regionTitle">Strategy Plains</h3>
+            <p id="regionDescription">Introductory strategy, card, set, and abstract games.</p>
+          </div>
+          <div class="region-frame">
+            <div class="region-board" id="regionBoard">
+              <img id="regionImage" src="assets/map/regions/strategy-plains.png" alt="Strategy Plains region map">
+              <canvas id="nodeStateCanvas" class="node-state-canvas" aria-hidden="true"></canvas>
+              <canvas id="hitMapCanvas" class="hitmap-canvas" aria-hidden="true"></canvas>
+            </div>
+          </div>
+          <aside class="game-detail" id="gameDetail" aria-live="polite" hidden>
+            <button class="game-detail__close" id="gameDetailClose" type="button" aria-label="Close game details">×</button>
+            <p class="eyebrow" id="gameDetailStatus">Locked</p>
+            <h4 id="gameDetailTitle">Select a game</h4>
+            <dl>
+              <div>
+                <dt>Genre</dt>
+                <dd id="gameDetailGenre">-</dd>
+              </div>
+              <div>
+                <dt>Theme</dt>
+                <dd id="gameDetailTheme">-</dd>
+              </div>
+              <div>
+                <dt>Players</dt>
+                <dd id="gameDetailPlayers">-</dd>
+              </div>
+              <div>
+                <dt>Time</dt>
+                <dd id="gameDetailTime">-</dd>
+              </div>
+              <div>
+                <dt>Difficulty</dt>
+                <dd id="gameDetailDifficulty">-</dd>
+              </div>
+              <div>
+                <dt>Last played</dt>
+                <dd id="gameDetailLastPlayed">Never</dd>
+              </div>
+            </dl>
+          </aside>
+          <button class="atlas-return" type="button" id="atlasReturn">Back to Atlas</button>
+        </section>
       </section>
     </main>
 
+    <div class="cloud-transition" id="cloudTransition" aria-hidden="true" hidden>
+      <video class="cloud-transition__video" id="cloudTransitionVideo" muted playsinline preload="auto" aria-hidden="true">
+        <source src="assets/video/cloud-transition-alpha.webm" type="video/webm">
+      </video>
+      <div class="cloud-transition__title" id="cloudTransitionTitle" aria-hidden="true"></div>
+    </div>
+
+    <script src="assets/data/boardmap-data.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

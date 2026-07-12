@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boardmap Developer Console</title>
+    <link rel="stylesheet" href="developer.css">
+  </head>
+  <body>
+    <header class="dev-header">
+      <div>
+        <p class="eyebrow">Boardmap / Local Data Tools</p>
+        <h1>Developer Console</h1>
+        <p>Inspect the bundled catalog and manage play records stored in this browser.</p>
+      </div>
+      <div><a class="back-link" href="auth.html">Sign In</a> <a class="back-link" href="index.html">Back to Boardmap</a></div>
+    </header>
+
+    <main>
+      <section class="notice" aria-label="Storage information">
+        <strong>Storage boundary</strong>
+        <p>Catalog records come from read-only JSON assets. Only play sessions and their member relations in localStorage can be changed here.</p>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <div><p class="eyebrow">Overview</p><h2>Data health</h2></div>
+          <button id="refreshButton" type="button">Refresh</button>
+        </div>
+        <div class="metric-grid" id="metricGrid"></div>
+        <div class="validation" id="validationResult" role="status"></div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <div><p class="eyebrow">Explorer</p><h2>Records</h2></div>
+          <label class="search-label">Search <input id="recordSearch" type="search" placeholder="Filter current table"></label>
+        </div>
+        <div class="tabs" id="dataTabs" role="tablist" aria-label="Data tables"></div>
+        <form class="session-editor" id="sessionEditor" hidden>
+          <input id="editSessionId" type="hidden">
+          <label>Game title<span class="game-combobox" id="gameCombobox"><input id="editGameTitle" type="search" placeholder="Search by title" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="gameTitleOptions" required><span class="game-options" id="gameTitleOptions" role="listbox" hidden></span></span></label>
+          <label>Play date<input id="editPlayDate" type="date" required></label>
+          <fieldset class="member-picker"><legend>Members <span id="selectedMemberCount">0 selected</span></legend><input id="memberFilter" type="search" placeholder="Search members" autocomplete="off"><span class="member-options" id="sessionMemberOptions"></span></fieldset>
+          <label>Note<input id="editSessionNote" type="text" placeholder="Optional"></label>
+          <div class="editor-actions"><button type="submit" id="saveSessionButton">Add session</button><button type="button" id="cancelEditButton" hidden>Cancel edit</button></div>
+        </form>
+        <form class="member-editor" id="memberEditor" hidden>
+          <input id="editMemberId" type="hidden">
+          <label>Member name<input id="editMemberName" type="text" placeholder="Enter member name" required></label>
+          <div class="editor-actions"><button type="submit" id="saveMemberButton">Add member</button><button type="button" id="cancelMemberEditButton" hidden>Cancel edit</button></div>
+        </form>
+        <p class="table-note" id="tableNote"></p>
+        <div class="table-wrap"><table><thead id="tableHead"></thead><tbody id="tableBody"></tbody></table></div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <div><p class="eyebrow">Member History</p><h2>Games by member</h2></div>
+          <label class="search-label">Member<select id="historyMemberSelect"><option value="">Select a member</option></select></label>
+        </div>
+        <div class="history-summary" id="historySummary">Select a member to see their play history.</div>
+        <div class="table-wrap"><table><thead><tr><th>Play date</th><th>Game title</th><th>Players</th><th>Note</th></tr></thead><tbody id="historyTableBody"></tbody></table></div>
+      </section>
+
+      <section>
+        <div class="section-heading"><div><p class="eyebrow">Local records</p><h2>Backup and restore</h2></div></div>
+        <div class="action-grid">
+          <article>
+            <h3>Export backup</h3>
+            <p>Download members, sessions, and member relations as one JSON file.</p>
+            <button id="exportButton" type="button">Export JSON</button>
+          </article>
+          <article>
+            <h3>Import backup</h3>
+            <p>Replace local records with a previously exported Boardmap backup.</p>
+            <label class="file-button">Choose JSON<input id="importInput" type="file" accept="application/json,.json"></label>
+          </article>
+          <article class="danger-card">
+            <h3>Reset local data</h3>
+            <p>Type <code>DELETE</code> to remove every local member and play record.</p>
+            <input id="resetConfirmation" type="text" autocomplete="off" placeholder="DELETE">
+            <button id="resetButton" class="danger" type="button" disabled>Delete all local records</button>
+          </article>
+        </div>
+        <p class="action-message" id="actionMessage" role="status"></p>
+      </section>
+    </main>
+
+    <script src="assets/data/boardmap-data.js"></script>
+    <script src="developer.js"></script>
+  </body>
+</html>

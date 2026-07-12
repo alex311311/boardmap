@@ -1,0 +1,44 @@
+[
+    {
+        "id": "strategy-plains",
+        "title": "Strategy Plains",
+        "description": "Introductory strategy, card, set, and abstract games.",
+        "imageUrl": "assets/map/regions/strategy-plains.png",
+        "sortOrder": 1
+    },
+    {
+        "id": "engine-highlands",
+        "title": "Engine Highlands",
+        "description": "Build-up, engine, resource, and economy games.",
+        "imageUrl": "assets/map/regions/engine-highlands.png",
+        "sortOrder": 2
+    },
+    {
+        "id": "route-territory-coast",
+        "title": "Route & Territory Coast",
+        "description": "Route building, area control, tile placement, and territory games.",
+        "imageUrl": "assets/map/regions/route-territory-coast.png",
+        "sortOrder": 3
+    },
+    {
+        "id": "social-isles",
+        "title": "Social Isles",
+        "description": "Social deduction, mafia, negotiation, and party-driven games.",
+        "imageUrl": "assets/map/regions/social-isles.png",
+        "sortOrder": 4
+    },
+    {
+        "id": "wagering-port",
+        "title": "Wagering Port",
+        "description": "Betting, prediction, auction, and trading games.",
+        "imageUrl": "assets/map/regions/wagering-port.png",
+        "sortOrder": 5
+    },
+    {
+        "id": "mystery-district",
+        "title": "Mystery District",
+        "description": "Deduction, murder mystery, escape-room, and investigation games.",
+        "imageUrl": "assets/map/regions/mystery-district.png",
+        "sortOrder": 6
+    }
+]

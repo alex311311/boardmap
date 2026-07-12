@@ -1,0 +1,2354 @@
+[
+    {
+        "gameId": "game-001",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 56.449,
+        "y": 8.597,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-001",
+        "nodeOrder": 1,
+        "data": {
+            "gameId": "game-001"
+        }
+    },
+    {
+        "gameId": "game-002",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 36.328,
+        "y": 8.105,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-001",
+        "nodeOrder": 1,
+        "data": {
+            "gameId": "game-002"
+        }
+    },
+    {
+        "gameId": "game-003",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 34.965,
+        "y": 11.332,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-002",
+        "nodeOrder": 2,
+        "data": {
+            "gameId": "game-003"
+        }
+    },
+    {
+        "gameId": "game-004",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 36.136,
+        "y": 7.429,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-001",
+        "nodeOrder": 1,
+        "data": {
+            "gameId": "game-004"
+        }
+    },
+    {
+        "gameId": "game-005",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 28.095,
+        "y": 8.695,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-001",
+        "nodeOrder": 1,
+        "data": {
+            "gameId": "game-005"
+        }
+    },
+    {
+        "gameId": "game-006",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 48.733,
+        "y": 10.844,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-002",
+        "nodeOrder": 2,
+        "data": {
+            "gameId": "game-006"
+        }
+    },
+    {
+        "gameId": "game-007",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 68.038,
+        "y": 15.629,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-003",
+        "nodeOrder": 3,
+        "data": {
+            "gameId": "game-007"
+        }
+    },
+    {
+        "gameId": "game-008",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 49.288,
+        "y": 17.386,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-004",
+        "nodeOrder": 4,
+        "data": {
+            "gameId": "game-008"
+        }
+    },
+    {
+        "gameId": "game-009",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 20.117,
+        "y": 12.109,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-002",
+        "nodeOrder": 2,
+        "data": {
+            "gameId": "game-009"
+        }
+    },
+    {
+        "gameId": "game-010",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 89.782,
+        "y": 8.015,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-002",
+        "nodeOrder": 2,
+        "data": {
+            "gameId": "game-010"
+        }
+    },
+    {
+        "gameId": "game-011",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 47.416,
+        "y": 11.479,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-001",
+        "nodeOrder": 1,
+        "data": {
+            "gameId": "game-011"
+        }
+    },
+    {
+        "gameId": "game-012",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 55.146,
+        "y": 8.601,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-003",
+        "nodeOrder": 3,
+        "data": {
+            "gameId": "game-012"
+        }
+    },
+    {
+        "gameId": "game-013",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 84.54,
+        "y": 13.285,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-003",
+        "nodeOrder": 3,
+        "data": {
+            "gameId": "game-013"
+        }
+    },
+    {
+        "gameId": "game-014",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 31.905,
+        "y": 21.683,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-005",
+        "nodeOrder": 5,
+        "data": {
+            "gameId": "game-014"
+        }
+    },
+    {
+        "gameId": "game-015",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 81.579,
+        "y": 22.367,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-006",
+        "nodeOrder": 6,
+        "data": {
+            "gameId": "game-015"
+        }
+    },
+    {
+        "gameId": "game-016",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 23.115,
+        "y": 10.554,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-004",
+        "nodeOrder": 4,
+        "data": {
+            "gameId": "game-016"
+        }
+    },
+    {
+        "gameId": "game-017",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 45.901,
+        "y": 13.679,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-005",
+        "nodeOrder": 5,
+        "data": {
+            "gameId": "game-017"
+        }
+    },
+    {
+        "gameId": "game-018",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 77.933,
+        "y": 14.069,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-006",
+        "nodeOrder": 6,
+        "data": {
+            "gameId": "game-018"
+        }
+    },
+    {
+        "gameId": "game-019",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 67.938,
+        "y": 13.676,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-004",
+        "nodeOrder": 4,
+        "data": {
+            "gameId": "game-019"
+        }
+    },
+    {
+        "gameId": "game-020",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 50.911,
+        "y": 14.844,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-003",
+        "nodeOrder": 3,
+        "data": {
+            "gameId": "game-020"
+        }
+    },
+    {
+        "gameId": "game-021",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 41.195,
+        "y": 14.887,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-002",
+        "nodeOrder": 2,
+        "data": {
+            "gameId": "game-021"
+        }
+    },
+    {
+        "gameId": "game-022",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 62.373,
+        "y": 23.929,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-007",
+        "nodeOrder": 7,
+        "data": {
+            "gameId": "game-022"
+        }
+    },
+    {
+        "gameId": "game-023",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 53.162,
+        "y": 15.998,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-003",
+        "nodeOrder": 3,
+        "data": {
+            "gameId": "game-023"
+        }
+    },
+    {
+        "gameId": "game-024",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 26.696,
+        "y": 20.026,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-007",
+        "nodeOrder": 7,
+        "data": {
+            "gameId": "game-024"
+        }
+    },
+    {
+        "gameId": "game-025",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 23.376,
+        "y": 29.105,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-008",
+        "nodeOrder": 8,
+        "data": {
+            "gameId": "game-025"
+        }
+    },
+    {
+        "gameId": "game-026",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 50.425,
+        "y": 18.754,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-005",
+        "nodeOrder": 5,
+        "data": {
+            "gameId": "game-026"
+        }
+    },
+    {
+        "gameId": "game-027",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 13.349,
+        "y": 25.983,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-008",
+        "nodeOrder": 8,
+        "data": {
+            "gameId": "game-027"
+        }
+    },
+    {
+        "gameId": "game-028",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 71.9,
+        "y": 16.832,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-004",
+        "nodeOrder": 4,
+        "data": {
+            "gameId": "game-028"
+        }
+    },
+    {
+        "gameId": "game-029",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 91.54,
+        "y": 32.621,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-009",
+        "nodeOrder": 9,
+        "data": {
+            "gameId": "game-029"
+        }
+    },
+    {
+        "gameId": "game-030",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 36.136,
+        "y": 25.983,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-009",
+        "nodeOrder": 9,
+        "data": {
+            "gameId": "game-030"
+        }
+    },
+    {
+        "gameId": "game-031",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 36.037,
+        "y": 20.219,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-006",
+        "nodeOrder": 6,
+        "data": {
+            "gameId": "game-031"
+        }
+    },
+    {
+        "gameId": "game-032",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 56.905,
+        "y": 33.304,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-010",
+        "nodeOrder": 10,
+        "data": {
+            "gameId": "game-032"
+        }
+    },
+    {
+        "gameId": "game-033",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 79.852,
+        "y": 23.734,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-007",
+        "nodeOrder": 7,
+        "data": {
+            "gameId": "game-033"
+        }
+    },
+    {
+        "gameId": "game-034",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 35.551,
+        "y": 35.062,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-011",
+        "nodeOrder": 11,
+        "data": {
+            "gameId": "game-034"
+        }
+    },
+    {
+        "gameId": "game-035",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 89.131,
+        "y": 26.276,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-010",
+        "nodeOrder": 10,
+        "data": {
+            "gameId": "game-035"
+        }
+    },
+    {
+        "gameId": "game-036",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 63.87,
+        "y": 28.913,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-011",
+        "nodeOrder": 11,
+        "data": {
+            "gameId": "game-036"
+        }
+    },
+    {
+        "gameId": "game-037",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 67.773,
+        "y": 16.309,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-004",
+        "nodeOrder": 4,
+        "data": {
+            "gameId": "game-037"
+        }
+    },
+    {
+        "gameId": "game-038",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 89.618,
+        "y": 24.223,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-008",
+        "nodeOrder": 8,
+        "data": {
+            "gameId": "game-038"
+        }
+    },
+    {
+        "gameId": "game-039",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 28.095,
+        "y": 29.106,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-009",
+        "nodeOrder": 9,
+        "data": {
+            "gameId": "game-039"
+        }
+    },
+    {
+        "gameId": "game-040",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 79.235,
+        "y": 36.82,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-012",
+        "nodeOrder": 12,
+        "data": {
+            "gameId": "game-040"
+        }
+    },
+    {
+        "gameId": "game-041",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 78.649,
+        "y": 29.792,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-012",
+        "nodeOrder": 12,
+        "data": {
+            "gameId": "game-041"
+        }
+    },
+    {
+        "gameId": "game-042",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 51.11,
+        "y": 35.065,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-013",
+        "nodeOrder": 13,
+        "data": {
+            "gameId": "game-042"
+        }
+    },
+    {
+        "gameId": "game-043",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 59.084,
+        "y": 30.473,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-010",
+        "nodeOrder": 10,
+        "data": {
+            "gameId": "game-043"
+        }
+    },
+    {
+        "gameId": "game-044",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 43.654,
+        "y": 33.402,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-011",
+        "nodeOrder": 11,
+        "data": {
+            "gameId": "game-044"
+        }
+    },
+    {
+        "gameId": "game-045",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 66.019,
+        "y": 39.75,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-013",
+        "nodeOrder": 13,
+        "data": {
+            "gameId": "game-045"
+        }
+    },
+    {
+        "gameId": "game-046",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 25.24,
+        "y": 19.61,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-005",
+        "nodeOrder": 5,
+        "data": {
+            "gameId": "game-046"
+        }
+    },
+    {
+        "gameId": "game-047",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 11.852,
+        "y": 37.507,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-014",
+        "nodeOrder": 14,
+        "data": {
+            "gameId": "game-047"
+        }
+    },
+    {
+        "gameId": "game-048",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 68.394,
+        "y": 39.066,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-012",
+        "nodeOrder": 12,
+        "data": {
+            "gameId": "game-048"
+        }
+    },
+    {
+        "gameId": "game-049",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 31.706,
+        "y": 20.996,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-005",
+        "nodeOrder": 5,
+        "data": {
+            "gameId": "game-049"
+        }
+    },
+    {
+        "gameId": "game-050",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 36.949,
+        "y": 39.945,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-013",
+        "nodeOrder": 13,
+        "data": {
+            "gameId": "game-050"
+        }
+    },
+    {
+        "gameId": "game-051",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 86.558,
+        "y": 43.363,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-014",
+        "nodeOrder": 14,
+        "data": {
+            "gameId": "game-051"
+        }
+    },
+    {
+        "gameId": "game-052",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 27.672,
+        "y": 38.288,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-015",
+        "nodeOrder": 15,
+        "data": {
+            "gameId": "game-052"
+        }
+    },
+    {
+        "gameId": "game-053",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 67.386,
+        "y": 41.218,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-016",
+        "nodeOrder": 16,
+        "data": {
+            "gameId": "game-053"
+        }
+    },
+    {
+        "gameId": "game-054",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 40.498,
+        "y": 45.707,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-014",
+        "nodeOrder": 14,
+        "data": {
+            "gameId": "game-054"
+        }
+    },
+    {
+        "gameId": "game-055",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 9.93,
+        "y": 47.074,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-015",
+        "nodeOrder": 15,
+        "data": {
+            "gameId": "game-055"
+        }
+    },
+    {
+        "gameId": "game-056",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 53.55,
+        "y": 47.367,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-016",
+        "nodeOrder": 16,
+        "data": {
+            "gameId": "game-056"
+        }
+    },
+    {
+        "gameId": "game-057",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 47.642,
+        "y": 19.745,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-006",
+        "nodeOrder": 6,
+        "data": {
+            "gameId": "game-057"
+        }
+    },
+    {
+        "gameId": "game-058",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 10.742,
+        "y": 22.754,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-006",
+        "nodeOrder": 6,
+        "data": {
+            "gameId": "game-058"
+        }
+    },
+    {
+        "gameId": "game-059",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 66.798,
+        "y": 20.998,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-007",
+        "nodeOrder": 7,
+        "data": {
+            "gameId": "game-059"
+        }
+    },
+    {
+        "gameId": "game-060",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 84.508,
+        "y": 44.44,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-017",
+        "nodeOrder": 17,
+        "data": {
+            "gameId": "game-060"
+        }
+    },
+    {
+        "gameId": "game-061",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 40.302,
+        "y": 44.929,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-018",
+        "nodeOrder": 18,
+        "data": {
+            "gameId": "game-061"
+        }
+    },
+    {
+        "gameId": "game-062",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 58.271,
+        "y": 47.663,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-019",
+        "nodeOrder": 19,
+        "data": {
+            "gameId": "game-062"
+        }
+    },
+    {
+        "gameId": "game-063",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 25.329,
+        "y": 46.097,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-015",
+        "nodeOrder": 15,
+        "data": {
+            "gameId": "game-063"
+        }
+    },
+    {
+        "gameId": "game-064",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 27.933,
+        "y": 52.644,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-020",
+        "nodeOrder": 20,
+        "data": {
+            "gameId": "game-064"
+        }
+    },
+    {
+        "gameId": "game-065",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 13.805,
+        "y": 55.378,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-021",
+        "nodeOrder": 21,
+        "data": {
+            "gameId": "game-065"
+        }
+    },
+    {
+        "gameId": "game-066",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 81.646,
+        "y": 24.118,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-008",
+        "nodeOrder": 8,
+        "data": {
+            "gameId": "game-066"
+        }
+    },
+    {
+        "gameId": "game-067",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 67.776,
+        "y": 58.015,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-022",
+        "nodeOrder": 22,
+        "data": {
+            "gameId": "game-067"
+        }
+    },
+    {
+        "gameId": "game-068",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 27.183,
+        "y": 48.051,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-017",
+        "nodeOrder": 17,
+        "data": {
+            "gameId": "game-068"
+        }
+    },
+    {
+        "gameId": "game-069",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 16.427,
+        "y": 25.86,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-009",
+        "nodeOrder": 9,
+        "data": {
+            "gameId": "game-069"
+        }
+    },
+    {
+        "gameId": "game-070",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 88.61,
+        "y": 47.074,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-016",
+        "nodeOrder": 16,
+        "data": {
+            "gameId": "game-070"
+        }
+    },
+    {
+        "gameId": "game-071",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 15.108,
+        "y": 50.492,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-017",
+        "nodeOrder": 17,
+        "data": {
+            "gameId": "game-071"
+        }
+    },
+    {
+        "gameId": "game-072",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 70.022,
+        "y": 51.273,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-018",
+        "nodeOrder": 18,
+        "data": {
+            "gameId": "game-072"
+        }
+    },
+    {
+        "gameId": "game-073",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 36.819,
+        "y": 55.766,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-019",
+        "nodeOrder": 19,
+        "data": {
+            "gameId": "game-073"
+        }
+    },
+    {
+        "gameId": "game-074",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 60.29,
+        "y": 52.347,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-018",
+        "nodeOrder": 18,
+        "data": {
+            "gameId": "game-074"
+        }
+    },
+    {
+        "gameId": "game-075",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 7.977,
+        "y": 63.676,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-020",
+        "nodeOrder": 20,
+        "data": {
+            "gameId": "game-075"
+        }
+    },
+    {
+        "gameId": "game-076",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 82.099,
+        "y": 60.163,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "nodeId": "engine-highlands-node-023",
+        "nodeOrder": 23,
+        "data": {
+            "gameId": "game-076"
+        }
+    },
+    {
+        "gameId": "game-077",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 81.579,
+        "y": 58.304,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-019",
+        "nodeOrder": 19,
+        "data": {
+            "gameId": "game-077"
+        }
+    },
+    {
+        "gameId": "game-078",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 73.828,
+        "y": 26.27,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-007",
+        "nodeOrder": 7,
+        "data": {
+            "gameId": "game-078"
+        }
+    },
+    {
+        "gameId": "game-079",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 94.795,
+        "y": 59.281,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-020",
+        "nodeOrder": 20,
+        "data": {
+            "gameId": "game-079"
+        }
+    },
+    {
+        "gameId": "game-080",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 22.55,
+        "y": 26.137,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-010",
+        "nodeOrder": 10,
+        "data": {
+            "gameId": "game-080"
+        }
+    },
+    {
+        "gameId": "game-081",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 45.251,
+        "y": 63.871,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-021",
+        "nodeOrder": 21,
+        "data": {
+            "gameId": "game-081"
+        }
+    },
+    {
+        "gameId": "game-082",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 66.215,
+        "y": 65.433,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "nodeId": "strategy-plains-node-022",
+        "nodeOrder": 22,
+        "data": {
+            "gameId": "game-082"
+        }
+    },
+    {
+        "gameId": "game-083",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 68.195,
+        "y": 27.729,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-011",
+        "nodeOrder": 11,
+        "data": {
+            "gameId": "game-083"
+        }
+    },
+    {
+        "gameId": "game-084",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 79.234,
+        "y": 30.368,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-012",
+        "nodeOrder": 12,
+        "data": {
+            "gameId": "game-084"
+        }
+    },
+    {
+        "gameId": "game-085",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 73.106,
+        "y": 30.998,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-013",
+        "nodeOrder": 13,
+        "data": {
+            "gameId": "game-085"
+        }
+    },
+    {
+        "gameId": "game-086",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 13.922,
+        "y": 34.193,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-014",
+        "nodeOrder": 14,
+        "data": {
+            "gameId": "game-086"
+        }
+    },
+    {
+        "gameId": "game-087",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 24.776,
+        "y": 37.665,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-015",
+        "nodeOrder": 15,
+        "data": {
+            "gameId": "game-087"
+        }
+    },
+    {
+        "gameId": "game-088",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 49.364,
+        "y": 41.757,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-016",
+        "nodeOrder": 16,
+        "data": {
+            "gameId": "game-088"
+        }
+    },
+    {
+        "gameId": "game-089",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 59.568,
+        "y": 42.035,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-017",
+        "nodeOrder": 17,
+        "data": {
+            "gameId": "game-089"
+        }
+    },
+    {
+        "gameId": "game-090",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 46.483,
+        "y": 47.526,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-018",
+        "nodeOrder": 18,
+        "data": {
+            "gameId": "game-090"
+        }
+    },
+    {
+        "gameId": "game-091",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 19.794,
+        "y": 15.143,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-001",
+        "nodeOrder": 1,
+        "data": {
+            "gameId": "game-091"
+        }
+    },
+    {
+        "gameId": "game-092",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 63.464,
+        "y": 48.007,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-019",
+        "nodeOrder": 19,
+        "data": {
+            "gameId": "game-092"
+        }
+    },
+    {
+        "gameId": "game-093",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 89.433,
+        "y": 50.165,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-020",
+        "nodeOrder": 20,
+        "data": {
+            "gameId": "game-093"
+        }
+    },
+    {
+        "gameId": "game-094",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 59.934,
+        "y": 54.193,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-021",
+        "nodeOrder": 21,
+        "data": {
+            "gameId": "game-094"
+        }
+    },
+    {
+        "gameId": "game-095",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 42.906,
+        "y": 15.436,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-002",
+        "nodeOrder": 2,
+        "data": {
+            "gameId": "game-095"
+        }
+    },
+    {
+        "gameId": "game-096",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 29.755,
+        "y": 15.533,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-003",
+        "nodeOrder": 3,
+        "data": {
+            "gameId": "game-096"
+        }
+    },
+    {
+        "gameId": "game-097",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 85.94,
+        "y": 18.268,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-004",
+        "nodeOrder": 4,
+        "data": {
+            "gameId": "game-097"
+        }
+    },
+    {
+        "gameId": "game-098",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 71.357,
+        "y": 18.561,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-005",
+        "nodeOrder": 5,
+        "data": {
+            "gameId": "game-098"
+        }
+    },
+    {
+        "gameId": "game-099",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 14,
+        "y": 22.662,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-006",
+        "nodeOrder": 6,
+        "data": {
+            "gameId": "game-099"
+        }
+    },
+    {
+        "gameId": "game-100",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 82.489,
+        "y": 29.205,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-007",
+        "nodeOrder": 7,
+        "data": {
+            "gameId": "game-100"
+        }
+    },
+    {
+        "gameId": "game-101",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 51.956,
+        "y": 31.842,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-008",
+        "nodeOrder": 8,
+        "data": {
+            "gameId": "game-101"
+        }
+    },
+    {
+        "gameId": "game-102",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 39.781,
+        "y": 32.233,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-009",
+        "nodeOrder": 9,
+        "data": {
+            "gameId": "game-102"
+        }
+    },
+    {
+        "gameId": "game-103",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 46.615,
+        "y": 29.59,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-008",
+        "nodeOrder": 8,
+        "data": {
+            "gameId": "game-103"
+        }
+    },
+    {
+        "gameId": "game-104",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 18.359,
+        "y": 37.207,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-009",
+        "nodeOrder": 9,
+        "data": {
+            "gameId": "game-104"
+        }
+    },
+    {
+        "gameId": "game-105",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 58.659,
+        "y": 42.578,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-010",
+        "nodeOrder": 10,
+        "data": {
+            "gameId": "game-105"
+        }
+    },
+    {
+        "gameId": "game-106",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 30.599,
+        "y": 43.457,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-011",
+        "nodeOrder": 11,
+        "data": {
+            "gameId": "game-106"
+        }
+    },
+    {
+        "gameId": "game-107",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 77.669,
+        "y": 46.191,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-012",
+        "nodeOrder": 12,
+        "data": {
+            "gameId": "game-107"
+        }
+    },
+    {
+        "gameId": "game-108",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 47.201,
+        "y": 49.219,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-013",
+        "nodeOrder": 13,
+        "data": {
+            "gameId": "game-108"
+        }
+    },
+    {
+        "gameId": "game-109",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 90.234,
+        "y": 52.051,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-014",
+        "nodeOrder": 14,
+        "data": {
+            "gameId": "game-109"
+        }
+    },
+    {
+        "gameId": "game-110",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 15.104,
+        "y": 58.887,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-015",
+        "nodeOrder": 15,
+        "data": {
+            "gameId": "game-110"
+        }
+    },
+    {
+        "gameId": "game-111",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 36.198,
+        "y": 60.938,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-016",
+        "nodeOrder": 16,
+        "data": {
+            "gameId": "game-111"
+        }
+    },
+    {
+        "gameId": "game-112",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 71.484,
+        "y": 61.328,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-017",
+        "nodeOrder": 17,
+        "data": {
+            "gameId": "game-112"
+        }
+    },
+    {
+        "gameId": "game-113",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 22.07,
+        "y": 79.004,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-018",
+        "nodeOrder": 18,
+        "data": {
+            "gameId": "game-113"
+        }
+    },
+    {
+        "gameId": "game-114",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 79.948,
+        "y": 80.566,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-019",
+        "nodeOrder": 19,
+        "data": {
+            "gameId": "game-114"
+        }
+    },
+    {
+        "gameId": "game-115",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 16.154,
+        "y": 55.507,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-022",
+        "nodeOrder": 22,
+        "data": {
+            "gameId": "game-115"
+        }
+    },
+    {
+        "gameId": "game-116",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 48.065,
+        "y": 56.618,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-023",
+        "nodeOrder": 23,
+        "data": {
+            "gameId": "game-116"
+        }
+    },
+    {
+        "gameId": "game-117",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 78.208,
+        "y": 68.36,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-024",
+        "nodeOrder": 24,
+        "data": {
+            "gameId": "game-117"
+        }
+    },
+    {
+        "gameId": "game-118",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 24.127,
+        "y": 69.887,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-025",
+        "nodeOrder": 25,
+        "data": {
+            "gameId": "game-118"
+        }
+    },
+    {
+        "gameId": "game-119",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 46.9,
+        "y": 72.384,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-026",
+        "nodeOrder": 26,
+        "data": {
+            "gameId": "game-119"
+        }
+    },
+    {
+        "gameId": "game-120",
+        "mapId": "wagering-port",
+        "regionId": "wagering-port",
+        "x": 57.747,
+        "y": 85.645,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-wagering-port",
+        "nodeId": "wagering-port-node-020",
+        "nodeOrder": 20,
+        "data": {
+            "gameId": "game-120"
+        }
+    },
+    {
+        "gameId": "game-121",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 40.824,
+        "y": 74.193,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-027",
+        "nodeOrder": 27,
+        "data": {
+            "gameId": "game-121"
+        }
+    },
+    {
+        "gameId": "game-122",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 71.065,
+        "y": 76.554,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-028",
+        "nodeOrder": 28,
+        "data": {
+            "gameId": "game-122"
+        }
+    },
+    {
+        "gameId": "game-123",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 50.848,
+        "y": 76.896,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-029",
+        "nodeOrder": 29,
+        "data": {
+            "gameId": "game-123"
+        }
+    },
+    {
+        "gameId": "game-124",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 20.885,
+        "y": 77.174,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-030",
+        "nodeOrder": 30,
+        "data": {
+            "gameId": "game-124"
+        }
+    },
+    {
+        "gameId": "game-125",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 78.579,
+        "y": 77.526,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-031",
+        "nodeOrder": 31,
+        "data": {
+            "gameId": "game-125"
+        }
+    },
+    {
+        "gameId": "game-126",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 84.8,
+        "y": 65.141,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-021",
+        "nodeOrder": 21,
+        "data": {
+            "gameId": "game-126"
+        }
+    },
+    {
+        "gameId": "game-127",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 60.777,
+        "y": 65.727,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-022",
+        "nodeOrder": 22,
+        "data": {
+            "gameId": "game-127"
+        }
+    },
+    {
+        "gameId": "game-128",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 39.854,
+        "y": 81.058,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-032",
+        "nodeOrder": 32,
+        "data": {
+            "gameId": "game-128"
+        }
+    },
+    {
+        "gameId": "game-129",
+        "mapId": "social-isles",
+        "regionId": "social-isles",
+        "x": 47.416,
+        "y": 84.257,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v3-social-isles",
+        "nodeId": "social-isles-node-033",
+        "nodeOrder": 33,
+        "data": {
+            "gameId": "game-129"
+        }
+    },
+    {
+        "gameId": "game-130",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 8.988,
+        "y": 67.093,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "originalRegionId": "social-isles",
+        "nodeId": "strategy-plains-node-023",
+        "nodeOrder": 23,
+        "data": {
+            "gameId": "game-130"
+        }
+    },
+    {
+        "gameId": "game-131",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 23.506,
+        "y": 68.07,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "originalRegionId": "social-isles",
+        "nodeId": "strategy-plains-node-024",
+        "nodeOrder": 24,
+        "data": {
+            "gameId": "game-131"
+        }
+    },
+    {
+        "gameId": "game-132",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 30.178,
+        "y": 69.731,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "nodeId": "route-territory-coast-node-023",
+        "nodeOrder": 23,
+        "data": {
+            "gameId": "game-132"
+        }
+    },
+    {
+        "gameId": "game-133",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 73.571,
+        "y": 73.539,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "originalRegionId": "social-isles",
+        "nodeId": "strategy-plains-node-025",
+        "nodeOrder": 25,
+        "data": {
+            "gameId": "game-133"
+        }
+    },
+    {
+        "gameId": "game-134",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 89.522,
+        "y": 74.027,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains",
+        "originalRegionId": "social-isles",
+        "nodeId": "strategy-plains-node-026",
+        "nodeOrder": 26,
+        "data": {
+            "gameId": "game-134"
+        }
+    },
+    {
+        "gameId": "game-135",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 42.451,
+        "y": 62.312,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "originalRegionId": "social-isles",
+        "nodeId": "engine-highlands-node-024",
+        "nodeOrder": 24,
+        "data": {
+            "gameId": "game-135"
+        }
+    },
+    {
+        "gameId": "game-136",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 21.618,
+        "y": 65.827,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "originalRegionId": "social-isles",
+        "nodeId": "engine-highlands-node-025",
+        "nodeOrder": 25,
+        "data": {
+            "gameId": "game-136"
+        }
+    },
+    {
+        "gameId": "game-137",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 24.482,
+        "y": 35.846,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-010",
+        "nodeOrder": 10,
+        "data": {
+            "gameId": "game-137"
+        }
+    },
+    {
+        "gameId": "game-138",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 74.351,
+        "y": 38.483,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-011",
+        "nodeOrder": 11,
+        "data": {
+            "gameId": "game-138"
+        }
+    },
+    {
+        "gameId": "game-139",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 55.862,
+        "y": 46.393,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-012",
+        "nodeOrder": 12,
+        "data": {
+            "gameId": "game-139"
+        }
+    },
+    {
+        "gameId": "game-140",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 10.354,
+        "y": 47.076,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-013",
+        "nodeOrder": 13,
+        "data": {
+            "gameId": "game-140"
+        }
+    },
+    {
+        "gameId": "game-141",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 20.641,
+        "y": 51.178,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-014",
+        "nodeOrder": 14,
+        "data": {
+            "gameId": "game-141"
+        }
+    },
+    {
+        "gameId": "game-142",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 79.885,
+        "y": 52.155,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-015",
+        "nodeOrder": 15,
+        "data": {
+            "gameId": "game-142"
+        }
+    },
+    {
+        "gameId": "game-143",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 35.094,
+        "y": 53.815,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-016",
+        "nodeOrder": 16,
+        "data": {
+            "gameId": "game-143"
+        }
+    },
+    {
+        "gameId": "game-144",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 5.276,
+        "y": 54.694,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-017",
+        "nodeOrder": 17,
+        "data": {
+            "gameId": "game-144"
+        }
+    },
+    {
+        "gameId": "game-145",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 88.349,
+        "y": 56.256,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-018",
+        "nodeOrder": 18,
+        "data": {
+            "gameId": "game-145"
+        }
+    },
+    {
+        "gameId": "game-146",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 67.646,
+        "y": 60.26,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-019",
+        "nodeOrder": 19,
+        "data": {
+            "gameId": "game-146"
+        }
+    },
+    {
+        "gameId": "game-147",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 21.877,
+        "y": 71.686,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-020",
+        "nodeOrder": 20,
+        "data": {
+            "gameId": "game-147"
+        }
+    },
+    {
+        "gameId": "game-148",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 83.857,
+        "y": 72.76,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-021",
+        "nodeOrder": 21,
+        "data": {
+            "gameId": "game-148"
+        }
+    },
+    {
+        "gameId": "game-149",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 44.208,
+        "y": 77.057,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-022",
+        "nodeOrder": 22,
+        "data": {
+            "gameId": "game-149"
+        }
+    },
+    {
+        "gameId": "game-150",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 24.547,
+        "y": 85.065,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-023",
+        "nodeOrder": 23,
+        "data": {
+            "gameId": "game-150"
+        }
+    },
+    {
+        "gameId": "game-151",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 55.927,
+        "y": 86.627,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-024",
+        "nodeOrder": 24,
+        "data": {
+            "gameId": "game-151"
+        }
+    },
+    {
+        "gameId": "game-152",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 37.958,
+        "y": 89.362,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-025",
+        "nodeOrder": 25,
+        "data": {
+            "gameId": "game-152"
+        }
+    },
+    {
+        "gameId": "game-153",
+        "mapId": "mystery-district",
+        "regionId": "mystery-district",
+        "x": 74.026,
+        "y": 89.948,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-mystery-district",
+        "nodeId": "mystery-district-node-026",
+        "nodeOrder": 26,
+        "data": {
+            "gameId": "game-153"
+        }
+    },
+    {
+        "gameId": "game-154",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 92.516,
+        "y": 69.733,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "originalRegionId": "mystery-district",
+        "nodeId": "engine-highlands-node-026",
+        "nodeOrder": 26,
+        "data": {
+            "gameId": "game-154"
+        }
+    },
+    {
+        "gameId": "game-155",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 49.808,
+        "y": 74.909,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands",
+        "originalRegionId": "social-isles",
+        "nodeId": "engine-highlands-node-027",
+        "nodeOrder": 27,
+        "data": {
+            "gameId": "game-155"
+        }
+    },
+    {
+        "gameId": "game-156",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 47.04,
+        "y": 71.391,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "originalRegionId": "social-isles",
+        "nodeId": "route-territory-coast-node-024",
+        "nodeOrder": 24,
+        "data": {
+            "gameId": "game-156"
+        }
+    },
+    {
+        "gameId": "game-157",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 89.618,
+        "y": 72.465,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast",
+        "originalRegionId": "social-isles",
+        "nodeId": "route-territory-coast-node-025",
+        "nodeOrder": 25,
+        "data": {
+            "gameId": "game-157"
+        }
+    },
+    {
+        "nodeId": "strategy-plains-node-027",
+        "nodeOrder": 27,
+        "gameId": null,
+        "data": "none",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 57.621,
+        "y": 75.687,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains"
+    },
+    {
+        "nodeId": "strategy-plains-node-028",
+        "nodeOrder": 28,
+        "gameId": null,
+        "data": "none",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 38.741,
+        "y": 78.715,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains"
+    },
+    {
+        "nodeId": "strategy-plains-node-029",
+        "nodeOrder": 29,
+        "gameId": null,
+        "data": "none",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 25.785,
+        "y": 82.816,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains"
+    },
+    {
+        "nodeId": "strategy-plains-node-030",
+        "nodeOrder": 30,
+        "gameId": null,
+        "data": "none",
+        "mapId": "strategy-plains",
+        "regionId": "strategy-plains",
+        "x": 85.03,
+        "y": 87.406,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-strategy-plains"
+    },
+    {
+        "nodeId": "engine-highlands-node-028",
+        "nodeOrder": 28,
+        "gameId": null,
+        "data": "none",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 67.321,
+        "y": 79.108,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands"
+    },
+    {
+        "nodeId": "engine-highlands-node-029",
+        "nodeOrder": 29,
+        "gameId": null,
+        "data": "none",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 10.029,
+        "y": 79.401,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands"
+    },
+    {
+        "nodeId": "engine-highlands-node-030",
+        "nodeOrder": 30,
+        "gameId": null,
+        "data": "none",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 22.138,
+        "y": 84.089,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands"
+    },
+    {
+        "nodeId": "engine-highlands-node-031",
+        "nodeOrder": 31,
+        "gameId": null,
+        "data": "none",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 42.842,
+        "y": 86.628,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands"
+    },
+    {
+        "nodeId": "engine-highlands-node-032",
+        "nodeOrder": 32,
+        "gameId": null,
+        "data": "none",
+        "mapId": "engine-highlands",
+        "regionId": "engine-highlands",
+        "x": 63.935,
+        "y": 90.339,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-engine-highlands"
+    },
+    {
+        "nodeId": "route-territory-coast-node-026",
+        "nodeOrder": 26,
+        "gameId": null,
+        "data": "none",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 77.053,
+        "y": 78.91,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast"
+    },
+    {
+        "nodeId": "route-territory-coast-node-027",
+        "nodeOrder": 27,
+        "gameId": null,
+        "data": "none",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 17.873,
+        "y": 84.086,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast"
+    },
+    {
+        "nodeId": "route-territory-coast-node-028",
+        "nodeOrder": 28,
+        "gameId": null,
+        "data": "none",
+        "mapId": "route-territory-coast",
+        "regionId": "route-territory-coast",
+        "x": 36.167,
+        "y": 84.281,
+        "placementStatus": "placed",
+        "placementMethod": "user-marked-v1-route-territory-coast"
+    }
+]
