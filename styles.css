@@ -645,6 +645,30 @@ h1 {
   transform: translateY(0);
 }
 
+@media (max-width: 840px) {
+  .region-hotspot.is-mobile-selected {
+    border-color: rgba(255, 237, 157, 0.9);
+    background: rgba(255, 237, 157, 0.14);
+    box-shadow: inset 0 0 0 2px rgba(255, 237, 157, 0.24), 0 0 28px rgba(255, 220, 118, 0.22);
+  }
+
+  .region-hotspot.is-mobile-selected span {
+    border-color: rgba(255, 237, 157, 0.88);
+    color: #fff4bd;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .region-hotspot.is-mobile-selected span::after {
+    content: "Tap again to enter";
+    display: block;
+    margin-top: 3px;
+    color: rgba(255, 244, 189, 0.72);
+    font-size: 0.52rem;
+    letter-spacing: 0.04em;
+  }
+}
+
 .region-hotspot--strategy {
   left: 2%;
   top: 7%;

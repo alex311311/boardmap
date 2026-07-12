@@ -167,6 +167,7 @@ let isMapOpen = false;
 let activeRegionId = null;
 let selectedNodeKey = null;
 let isScreenTransitioning = false;
+let selectedMobileRegionId = null;
 const visitedDestinationTitles = new Set(["Boardmap"]);
 let regionOverlayMetrics = {
   left: 0,
@@ -325,6 +326,24 @@ function resize() {
 
   updateTarget();
   syncRegionOverlayFit();
+  if (width > 840 && selectedMobileRegionId) clearMobileRegionSelection();
+}
+
+function clearMobileRegionSelection() {
+  selectedMobileRegionId = null;
+  regionHotspots.forEach((hotspot) => {
+    hotspot.classList.remove("is-mobile-selected");
+    hotspot.setAttribute("aria-pressed", "false");
+  });
+}
+
+function selectMobileRegion(hotspot, regionId) {
+  selectedMobileRegionId = regionId;
+  regionHotspots.forEach((candidate) => {
+    const selected = candidate === hotspot;
+    candidate.classList.toggle("is-mobile-selected", selected);
+    candidate.setAttribute("aria-pressed", String(selected));
+  });
 }
 
 function framePath(index) {
@@ -937,8 +956,16 @@ function findNodeKeyAtCanvasPoint(canvasX, canvasY) {
 
 function bindRegionNavigation() {
   regionHotspots.forEach((hotspot) => {
+    hotspot.setAttribute("aria-pressed", "false");
     hotspot.addEventListener("click", () => {
       const regionId = hotspot.dataset.region;
+      if (window.matchMedia("(max-width: 840px)").matches) {
+        if (selectedMobileRegionId !== regionId) {
+          selectMobileRegion(hotspot, regionId);
+          return;
+        }
+        clearMobileRegionSelection();
+      }
       runCloudTransition(() => openRegionMap(regionId), regions[regionId]?.title || "Region Map");
     });
   });
