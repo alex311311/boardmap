@@ -234,12 +234,17 @@ function renderProgressSummary() {
   boardGames.forEach((game) => { totals[getGameStatus(game.id).key] += 1; });
   const opened = boardGames.length - totals.locked;
   const percent = boardGames.length ? Math.round((opened / boardGames.length) * 100) : 0;
-  const top = [...playCountsByGame.entries()].sort((a, b) => b[1] - a[1])[0];
+  const latest = [...playSessions].sort((a, b) => {
+    const dateOrder = String(b.date).localeCompare(String(a.date));
+    return dateOrder || String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
+  })[0];
 
   summaryProgress.textContent = `${percent}%`;
   summaryOpened.textContent = `${opened} of ${boardGames.length} opened`;
   summaryRanks.innerHTML = `<span>Bronze ${totals.bronze}</span><span>Silver ${totals.silver}</span><span>Gold ${totals.gold}</span>`;
-  summaryTopGame.textContent = top ? `Most played: ${gamesById.get(top[0])?.title || "Unknown"} (${top[1]})` : "No plays recorded yet.";
+  summaryTopGame.textContent = latest
+    ? `Recently played: ${gamesById.get(latest.gameId)?.title || "Unknown"} · ${latest.date}`
+    : "No recent plays yet.";
 }
 
 function lerp(a, b, t) {
