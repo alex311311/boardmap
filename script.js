@@ -39,7 +39,7 @@ const cloudTransition = document.querySelector("#cloudTransition");
 const cloudTransitionTitle = document.querySelector("#cloudTransitionTitle");
 const cloudTransitionVideo = document.querySelector("#cloudTransitionVideo");
 let cloudTransitionMobile = document.querySelector("#cloudTransitionMobile");
-const mobileCloudAssetUrl = "assets/video/cloud-transition-mobile.webp";
+const mobileCloudAssetUrl = "assets/video/cloud-transition-mobile.webp?v=2";
 let mobileCloudBlobPromise = null;
 let activeMobileCloudObjectUrl = null;
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
