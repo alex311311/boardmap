@@ -1,5 +1,7 @@
 # Boardmap Development Plan
 
+> 2026-07-12: 모바일 구름 전환을 PC와 동일한 흐름으로 동기화한다. 고정 wall-clock 지연 대신 실제 영상 `currentTime` 1.35초에 목적지 화면을 교체하고 두 번의 animation frame으로 새 화면 페인트를 보장한 뒤, 2.95초까지 구름이 걷히는 영상을 재생한다. 모바일 영상 디코딩 지연이 있어도 화면 교체가 영상 종료 뒤로 밀리지 않게 한다.
+
 > 2026-07-12: 모바일 맵 오버레이를 최적화한다. 840px 이하에서 Expedition Progress의 폭·패딩·글자 크기를 축소하고, 460px 이하에서는 190px 카드로 압축한다. 게임 상세는 최대 높이를 38svh로 제한한 스크롤 패널과 2열 정보 그리드를 사용해 맵 가림을 줄인다.
 
 > 2026-07-12: 게임 노드 상세 패널에 가장 최근 플레이 세션의 참여자 목록인 `Last players`를 추가한다. Supabase의 `play_sessions`, `play_session_members`, `members` 관계를 조합하며 기록이 없으면 `None yet`로 표시한다.

@@ -245,6 +245,26 @@ function waitForTransition(milliseconds) {
   return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
 }
 
+function waitForCloudVideoTime(targetTime, timeout = 2400) {
+  if (!cloudTransitionVideo) return waitForTransition(Math.min(timeout, 1200));
+
+  return new Promise((resolve) => {
+    const startedAt = performance.now();
+    const checkTime = () => {
+      if (cloudTransitionVideo.currentTime >= targetTime || cloudTransitionVideo.ended || performance.now() - startedAt >= timeout) {
+        resolve();
+        return;
+      }
+      requestAnimationFrame(checkTime);
+    };
+    checkTime();
+  });
+}
+
+function waitForNextPaint() {
+  return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+}
+
 async function runCloudTransition(changeScreen, destinationTitle = "") {
   if (isScreenTransitioning || typeof changeScreen !== "function") return;
 
@@ -271,10 +291,11 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
   }
   void cloudTransition.offsetWidth;
   cloudTransition.classList.add("is-video-playing");
-  cloudTransitionVideo?.play().catch(() => {});
-  await waitForTransition(2500);
+  await cloudTransitionVideo?.play().catch(() => {});
+  await waitForCloudVideoTime(1.35, 2200);
   changeScreen();
-  await waitForTransition(2540);
+  await waitForNextPaint();
+  await waitForCloudVideoTime(2.95, 2200);
   cloudTransitionVideo?.pause();
   cloudTransition.classList.remove("is-video-playing");
   if (transitionTitle) {
