@@ -245,39 +245,6 @@ function waitForTransition(milliseconds) {
   return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
 }
 
-function waitForCloudVideoTime(targetTime, timeout = 2400) {
-  if (!cloudTransitionVideo) return waitForTransition(Math.min(timeout, 1200));
-
-  return new Promise((resolve) => {
-    const startedAt = performance.now();
-    const checkTime = () => {
-      if (cloudTransitionVideo.currentTime >= targetTime || cloudTransitionVideo.ended || performance.now() - startedAt >= timeout) {
-        resolve();
-        return;
-      }
-      requestAnimationFrame(checkTime);
-    };
-    checkTime();
-  });
-}
-
-function waitForNextPaint() {
-  return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-}
-
-function syncCloudTransitionVideoSource() {
-  if (!cloudTransitionVideo) return;
-  const useMobileFallback = window.matchMedia("(max-width: 840px)").matches;
-  const targetSource = useMobileFallback
-    ? "assets/video/cloud-transition.mp4"
-    : "assets/video/cloud-transition-alpha.webm";
-  const currentSource = cloudTransitionVideo.getAttribute("src") || cloudTransitionVideo.currentSrc;
-  if (currentSource?.endsWith(targetSource)) return;
-  cloudTransitionVideo.pause();
-  cloudTransitionVideo.src = targetSource;
-  cloudTransitionVideo.load();
-}
-
 async function runCloudTransition(changeScreen, destinationTitle = "") {
   if (isScreenTransitioning || typeof changeScreen !== "function") return;
 
@@ -287,13 +254,12 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
 
   if (destinationTitle) visitedDestinationTitles.add(destinationTitle);
 
-  if (!cloudTransition || reducedMotionQuery.matches) {
+  if (!cloudTransition || reducedMotionQuery.matches || window.matchMedia("(max-width: 840px)").matches) {
     changeScreen();
     return;
   }
 
   isScreenTransitioning = true;
-  syncCloudTransitionVideoSource();
   cloudTransition.hidden = false;
   cloudTransition.classList.remove("is-video-playing", "is-titled", "is-title-leaving", "is-title-only");
   cloudTransitionTitle.textContent = transitionTitle;
@@ -306,17 +272,9 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
   void cloudTransition.offsetWidth;
   cloudTransition.classList.add("is-video-playing");
   await cloudTransitionVideo?.play().catch(() => {});
-  const useMobileVideoSync = window.matchMedia("(max-width: 840px)").matches;
-  if (useMobileVideoSync) {
-    await waitForCloudVideoTime(1.35, 2200);
-    changeScreen();
-    await waitForNextPaint();
-    await waitForCloudVideoTime(2.95, 2200);
-  } else {
-    await waitForTransition(2500);
-    changeScreen();
-    await waitForTransition(2540);
-  }
+  await waitForTransition(2500);
+  changeScreen();
+  await waitForTransition(2540);
   cloudTransitionVideo?.pause();
   cloudTransition.classList.remove("is-video-playing");
   if (transitionTitle) {
