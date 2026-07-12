@@ -34,6 +34,7 @@ const gameDetailPlayers = document.querySelector("#gameDetailPlayers");
 const gameDetailTime = document.querySelector("#gameDetailTime");
 const gameDetailDifficulty = document.querySelector("#gameDetailDifficulty");
 const gameDetailLastPlayed = document.querySelector("#gameDetailLastPlayed");
+const gameDetailLastPlayers = document.querySelector("#gameDetailLastPlayers");
 const cloudTransition = document.querySelector("#cloudTransition");
 const cloudTransitionTitle = document.querySelector("#cloudTransitionTitle");
 const cloudTransitionVideo = document.querySelector("#cloudTransitionVideo");
@@ -131,6 +132,8 @@ const regions = {
 const boardGames = dataArray(boardmapData.boardGames);
 const boardGameLocations = dataArray(boardmapData.boardGameLocations);
 const playSessions = [];
+const sharedMembers = new Map();
+const sessionMemberIds = new Map();
 const gamesById = new Map(boardGames.map((game) => [game.id, game]));
 const playCountsByGame = playSessions.reduce((counts, session) => {
   counts.set(session.gameId, (counts.get(session.gameId) || 0) + 1);
@@ -179,15 +182,27 @@ function clamp(value, min = 0, max = 1) {
 async function loadSharedPlaySessions() {
   const db = window.supabaseBoardmapDataSource?.client;
   if (!db) return;
-  const response = await db.from("play_sessions").select("id, game_id, played_at, note, created_at");
-  if (response.error) throw response.error;
-  playSessions.splice(0, playSessions.length, ...response.data.map((record) => ({
+  const [sessions, members, participants] = await Promise.all([
+    db.from("play_sessions").select("id, game_id, played_at, note, created_at"),
+    db.from("members").select("id, display_name"),
+    db.from("play_session_members").select("session_id, member_id")
+  ]);
+  [sessions, members, participants].forEach(({ error }) => { if (error) throw error; });
+  playSessions.splice(0, playSessions.length, ...sessions.data.map((record) => ({
     id: record.id,
     gameId: record.game_id,
     date: record.played_at,
     note: record.note || "",
     createdAt: record.created_at
   })));
+  sharedMembers.clear();
+  members.data.forEach((member) => sharedMembers.set(member.id, member.display_name));
+  sessionMemberIds.clear();
+  participants.data.forEach((participant) => {
+    const ids = sessionMemberIds.get(participant.session_id) || [];
+    ids.push(participant.member_id);
+    sessionMemberIds.set(participant.session_id, ids);
+  });
   playCountsByGame.clear();
   playSessions.forEach((session) => playCountsByGame.set(session.gameId, (playCountsByGame.get(session.gameId) || 0) + 1));
   renderProgressSummary();
@@ -198,6 +213,15 @@ function getLatestSession(gameId) {
   return playSessions
     .filter((session) => session.gameId === gameId)
     .sort((a, b) => String(b.date).localeCompare(String(a.date)))[0] || null;
+}
+
+function getLatestPlayers(gameId) {
+  const latest = getLatestSession(gameId);
+  if (!latest) return [];
+  return (sessionMemberIds.get(latest.id) || [])
+    .map((memberId) => sharedMembers.get(memberId))
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b, "ko"));
 }
 
 function renderProgressSummary() {
@@ -769,6 +793,7 @@ function showGameDetail(game, status, nodeKey = game?.id) {
   gameDetailTime.textContent = game.playTime || "-";
   gameDetailDifficulty.textContent = game.difficulty || "-";
   gameDetailLastPlayed.textContent = getLatestSession(game.id)?.date || "Never";
+  gameDetailLastPlayers.textContent = getLatestPlayers(game.id).join(", ") || "None yet";
 
   if (activeRegionId) {
     renderRegionCanvases(activeRegionId);
@@ -788,6 +813,7 @@ function showEmptyNodeDetail(location, nodeKey) {
   gameDetailTime.textContent = "-";
   gameDetailDifficulty.textContent = "-";
   gameDetailLastPlayed.textContent = "Never";
+  gameDetailLastPlayers.textContent = "None yet";
 
   if (activeRegionId) {
     renderRegionCanvases(activeRegionId);

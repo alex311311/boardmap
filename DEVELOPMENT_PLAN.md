@@ -1,5 +1,7 @@
 # Boardmap Development Plan
 
+> 2026-07-12: 게임 노드 상세 패널에 가장 최근 플레이 세션의 참여자 목록인 `Last players`를 추가한다. Supabase의 `play_sessions`, `play_session_members`, `members` 관계를 조합하며 기록이 없으면 `None yet`로 표시한다.
+
 > 2026-07-12: 실험 단계 운영 방식을 공개 Developer Console로 변경했다. 로그인 UI를 제거하고 멤버·플레이 세션·참여 관계 CRUD, 백업 가져오기, 초기화를 모두 Supabase 직접 저장으로 전환한다. 이 공개 쓰기 정책은 프로토타입 전용이며 운영 단계 전에 인증/RLS를 다시 제한해야 한다.
 
 > 2026-07-12: Supabase MCP 연결을 확인하고 MVP 스키마, 공개 읽기/인증 쓰기 RLS, `game_progress` view, 157개 게임과 169개 맵 노드 seed를 원격 프로젝트에 적용했다. Auth 가입 시 `members` 레코드를 자동 생성하고 `member`/`admin` 역할을 구분하는 정책을 추가했으며, 브라우저용 데이터 소스와 로그인 화면을 마련했다. Project URL과 Publishable Key 설정 및 최초 계정 관리자 승격 후 실제 쓰기 통합 검증이 남아 있다.
