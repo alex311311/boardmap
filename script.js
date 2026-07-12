@@ -265,6 +265,19 @@ function waitForNextPaint() {
   return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
 }
 
+function syncCloudTransitionVideoSource() {
+  if (!cloudTransitionVideo) return;
+  const useMobileFallback = window.matchMedia("(max-width: 840px)").matches;
+  const targetSource = useMobileFallback
+    ? "assets/video/cloud-transition.mp4"
+    : "assets/video/cloud-transition-alpha.webm";
+  const currentSource = cloudTransitionVideo.getAttribute("src") || cloudTransitionVideo.currentSrc;
+  if (currentSource?.endsWith(targetSource)) return;
+  cloudTransitionVideo.pause();
+  cloudTransitionVideo.src = targetSource;
+  cloudTransitionVideo.load();
+}
+
 async function runCloudTransition(changeScreen, destinationTitle = "") {
   if (isScreenTransitioning || typeof changeScreen !== "function") return;
 
@@ -280,6 +293,7 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
   }
 
   isScreenTransitioning = true;
+  syncCloudTransitionVideoSource();
   cloudTransition.hidden = false;
   cloudTransition.classList.remove("is-video-playing", "is-titled", "is-title-leaving", "is-title-only");
   cloudTransitionTitle.textContent = transitionTitle;

@@ -1,5 +1,7 @@
 # Boardmap Development Plan
 
+> 2026-07-12: 모바일에서 VP9 WebM 알파가 검정 배경으로 렌더링되는 호환성 문제를 해결한다. PC는 `cloud-transition-alpha.webm`을 유지하고, 840px 이하 모바일은 H.264 `cloud-transition.mp4`를 강제 선택한 뒤 기존 `mix-blend-mode: screen`으로 검정 매트를 제거한다. MP4 fallback source도 HTML에 명시한다.
+
 > 2026-07-12: 구름 전환 동기화 변경을 모바일 전용으로 한정한다. 840px 초과 PC에서는 검증된 기존 2500ms 화면 교체/2540ms 후반 재생 타이밍을 그대로 사용하고, 840px 이하에서만 영상 `currentTime` 기반 동기화를 적용한다.
 
 > 2026-07-12: 모바일 구름 전환을 PC와 동일한 흐름으로 동기화한다. 고정 wall-clock 지연 대신 실제 영상 `currentTime` 1.35초에 목적지 화면을 교체하고 두 번의 animation frame으로 새 화면 페인트를 보장한 뒤, 2.95초까지 구름이 걷히는 영상을 재생한다. 모바일 영상 디코딩 지연이 있어도 화면 교체가 영상 종료 뒤로 밀리지 않게 한다.
