@@ -38,6 +38,7 @@ const gameDetailLastPlayers = document.querySelector("#gameDetailLastPlayers");
 const cloudTransition = document.querySelector("#cloudTransition");
 const cloudTransitionTitle = document.querySelector("#cloudTransitionTitle");
 const cloudTransitionVideo = document.querySelector("#cloudTransitionVideo");
+let cloudTransitionMobile = document.querySelector("#cloudTransitionMobile");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const summaryProgress = document.querySelector("#summaryProgress");
 const summaryOpened = document.querySelector("#summaryOpened");
@@ -246,6 +247,14 @@ function waitForTransition(milliseconds) {
   return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
 }
 
+function restartMobileCloudTransition() {
+  if (!cloudTransitionMobile) return;
+  const replacement = cloudTransitionMobile.cloneNode(false);
+  replacement.src = "assets/video/cloud-transition-mobile.webp";
+  cloudTransitionMobile.replaceWith(replacement);
+  cloudTransitionMobile = replacement;
+}
+
 async function runCloudTransition(changeScreen, destinationTitle = "") {
   if (isScreenTransitioning || typeof changeScreen !== "function") return;
 
@@ -262,7 +271,7 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
 
   isScreenTransitioning = true;
   cloudTransition.hidden = false;
-  cloudTransition.classList.remove("is-video-playing", "is-titled", "is-title-leaving", "is-title-only");
+  cloudTransition.classList.remove("is-video-playing", "is-mobile-sequence", "is-titled", "is-title-leaving", "is-title-only");
   cloudTransitionTitle.textContent = transitionTitle;
   cloudTransitionTitle.dataset.title = transitionTitle;
   if (cloudTransitionVideo) {
@@ -271,13 +280,19 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
     cloudTransitionVideo.playbackRate = 1;
   }
   void cloudTransition.offsetWidth;
-  cloudTransition.classList.add("is-video-playing");
-  await cloudTransitionVideo?.play().catch(() => {});
+  const useMobileSequence = window.matchMedia("(max-width: 840px)").matches;
+  if (useMobileSequence) {
+    restartMobileCloudTransition();
+    cloudTransition.classList.add("is-mobile-sequence");
+  } else {
+    cloudTransition.classList.add("is-video-playing");
+    await cloudTransitionVideo?.play().catch(() => {});
+  }
   await waitForTransition(2500);
   changeScreen();
   await waitForTransition(2540);
   cloudTransitionVideo?.pause();
-  cloudTransition.classList.remove("is-video-playing");
+  cloudTransition.classList.remove("is-video-playing", "is-mobile-sequence");
   if (transitionTitle) {
     cloudTransition.classList.add("is-title-only");
     cloudTransition.classList.add("is-titled");
