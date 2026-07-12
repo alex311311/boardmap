@@ -39,6 +39,9 @@ const cloudTransition = document.querySelector("#cloudTransition");
 const cloudTransitionTitle = document.querySelector("#cloudTransitionTitle");
 const cloudTransitionVideo = document.querySelector("#cloudTransitionVideo");
 let cloudTransitionMobile = document.querySelector("#cloudTransitionMobile");
+const mobileCloudAssetUrl = "assets/video/cloud-transition-mobile.webp";
+let mobileCloudBlobPromise = null;
+let activeMobileCloudObjectUrl = null;
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const summaryProgress = document.querySelector("#summaryProgress");
 const summaryOpened = document.querySelector("#summaryOpened");
@@ -247,12 +250,36 @@ function waitForTransition(milliseconds) {
   return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
 }
 
-function restartMobileCloudTransition() {
+function getMobileCloudBlob() {
+  if (!mobileCloudBlobPromise) {
+    mobileCloudBlobPromise = fetch(mobileCloudAssetUrl).then((response) => {
+      if (!response.ok) throw new Error(`Could not preload mobile clouds (${response.status}).`);
+      return response.blob();
+    });
+  }
+  return mobileCloudBlobPromise;
+}
+
+async function restartMobileCloudTransition() {
   if (!cloudTransitionMobile) return;
+  let nextSource = `${mobileCloudAssetUrl}?restart=${Date.now()}`;
+  try {
+    const blob = await getMobileCloudBlob();
+    nextSource = URL.createObjectURL(blob);
+  } catch (error) {
+    console.warn("Using network fallback for mobile clouds.", error);
+  }
   const replacement = cloudTransitionMobile.cloneNode(false);
-  replacement.src = "assets/video/cloud-transition-mobile.webp";
+  replacement.removeAttribute("src");
+  await new Promise((resolve) => {
+    replacement.addEventListener("load", resolve, { once: true });
+    replacement.addEventListener("error", resolve, { once: true });
+    replacement.src = nextSource;
+  });
   cloudTransitionMobile.replaceWith(replacement);
   cloudTransitionMobile = replacement;
+  if (activeMobileCloudObjectUrl) URL.revokeObjectURL(activeMobileCloudObjectUrl);
+  activeMobileCloudObjectUrl = nextSource.startsWith("blob:") ? nextSource : null;
 }
 
 async function runCloudTransition(changeScreen, destinationTitle = "") {
@@ -282,7 +309,7 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
   void cloudTransition.offsetWidth;
   const useMobileSequence = window.matchMedia("(max-width: 840px)").matches;
   if (useMobileSequence) {
-    restartMobileCloudTransition();
+    await restartMobileCloudTransition();
     cloudTransition.classList.add("is-mobile-sequence");
   } else {
     cloudTransition.classList.add("is-video-playing");
@@ -1037,6 +1064,7 @@ window.addEventListener("resize", resize);
 
 bindMapEntryLinks();
 bindRegionNavigation();
+if (window.matchMedia("(max-width: 840px)").matches) getMobileCloudBlob().catch(() => {});
 renderProgressSummary();
 loadSharedPlaySessions().catch((error) => console.error("Could not load Supabase play sessions.", error));
 resize();
