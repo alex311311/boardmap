@@ -659,14 +659,6 @@ h1 {
     transform: translateY(0);
   }
 
-  .region-hotspot.is-mobile-selected span::after {
-    content: "Tap again to enter";
-    display: block;
-    margin-top: 3px;
-    color: rgba(255, 244, 189, 0.72);
-    font-size: 0.52rem;
-    letter-spacing: 0.04em;
-  }
 }
 
 .region-hotspot--strategy {
