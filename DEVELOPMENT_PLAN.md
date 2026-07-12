@@ -1,5 +1,7 @@
 # Boardmap Development Plan
 
+> 2026-07-12: 모바일 맵 오버레이를 최적화한다. 840px 이하에서 Expedition Progress의 폭·패딩·글자 크기를 축소하고, 460px 이하에서는 190px 카드로 압축한다. 게임 상세는 최대 높이를 38svh로 제한한 스크롤 패널과 2열 정보 그리드를 사용해 맵 가림을 줄인다.
+
 > 2026-07-12: 게임 노드 상세 패널에 가장 최근 플레이 세션의 참여자 목록인 `Last players`를 추가한다. Supabase의 `play_sessions`, `play_session_members`, `members` 관계를 조합하며 기록이 없으면 `None yet`로 표시한다.
 
 > 2026-07-12: 실험 단계 운영 방식을 공개 Developer Console로 변경했다. 로그인 UI를 제거하고 멤버·플레이 세션·참여 관계 CRUD, 백업 가져오기, 초기화를 모두 Supabase 직접 저장으로 전환한다. 이 공개 쓰기 정책은 프로토타입 전용이며 운영 단계 전에 인증/RLS를 다시 제한해야 한다.
