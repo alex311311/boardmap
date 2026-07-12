@@ -255,7 +255,7 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
 
   if (destinationTitle) visitedDestinationTitles.add(destinationTitle);
 
-  if (!cloudTransition || reducedMotionQuery.matches || window.matchMedia("(max-width: 840px)").matches) {
+  if (!cloudTransition || reducedMotionQuery.matches) {
     changeScreen();
     return;
   }
