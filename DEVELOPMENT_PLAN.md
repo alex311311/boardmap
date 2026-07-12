@@ -1,5 +1,7 @@
 # Boardmap Development Plan
 
+> 2026-07-12: 공개 화면의 상단 네비게이션에서 Developer 링크를 제거한다. `developer.html`과 기능은 유지하며 관리자는 주소를 직접 입력해 접근한다.
+
 > 2026-07-12: World Atlas의 Expedition Progress 요약에서 `Most played` 집계를 제거하고 가장 최근 플레이 세션의 게임 제목과 날짜를 `Recently played`로 표시한다. 플레이 날짜가 같으면 `created_at`이 더 최근인 세션을 우선한다.
 
 > 2026-07-12: PC Flight 화면의 설명 문장 최대 폭을 560px에서 650px로 넓혀 한 줄에 조금 더 길게 이어진 뒤 줄바꿈되도록 조정한다. 840px 이하 모바일 폭은 기존 규칙을 유지한다.
