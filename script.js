@@ -292,10 +292,17 @@ async function runCloudTransition(changeScreen, destinationTitle = "") {
   void cloudTransition.offsetWidth;
   cloudTransition.classList.add("is-video-playing");
   await cloudTransitionVideo?.play().catch(() => {});
-  await waitForCloudVideoTime(1.35, 2200);
-  changeScreen();
-  await waitForNextPaint();
-  await waitForCloudVideoTime(2.95, 2200);
+  const useMobileVideoSync = window.matchMedia("(max-width: 840px)").matches;
+  if (useMobileVideoSync) {
+    await waitForCloudVideoTime(1.35, 2200);
+    changeScreen();
+    await waitForNextPaint();
+    await waitForCloudVideoTime(2.95, 2200);
+  } else {
+    await waitForTransition(2500);
+    changeScreen();
+    await waitForTransition(2540);
+  }
   cloudTransitionVideo?.pause();
   cloudTransition.classList.remove("is-video-playing");
   if (transitionTitle) {
