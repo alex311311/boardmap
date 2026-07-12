@@ -383,6 +383,12 @@ h1 {
   text-shadow: 0 12px 34px rgba(0, 0, 0, 0.36);
 }
 
+@media (min-width: 841px) {
+  .chapter p:last-child {
+    width: min(650px, 100%);
+  }
+}
+
 .frame-strip {
   position: absolute;
   z-index: 9;
