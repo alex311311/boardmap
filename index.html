@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="assets/video/cloud-transition-mobile.webp" as="image" type="image/webp" media="(max-width: 840px)">
     <title>Boardmap</title>
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -147,7 +148,7 @@
       <video class="cloud-transition__video" id="cloudTransitionVideo" muted playsinline preload="auto" aria-hidden="true">
         <source src="assets/video/cloud-transition-alpha.webm" type="video/webm">
       </video>
-      <img class="cloud-transition__mobile" id="cloudTransitionMobile" src="assets/video/cloud-transition-mobile.webp" alt="" aria-hidden="true">
+      <img class="cloud-transition__mobile" id="cloudTransitionMobile" src="assets/video/cloud-transition-mobile.webp" alt="" aria-hidden="true" decoding="async" fetchpriority="high">
       <div class="cloud-transition__title" id="cloudTransitionTitle" aria-hidden="true"></div>
     </div>
 

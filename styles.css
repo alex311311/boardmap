@@ -70,6 +70,9 @@ body.is-map-open {
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, transform;
   pointer-events: none;
 }
 
